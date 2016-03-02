@@ -3,3 +3,8 @@
 /Users/Priebe/Library/Mobile Documents/com~apple~CloudDocs/Education/AU/I4IKN/Exercises/Øvelse-08/Exercise_8_c#/file_client/bin/Debug/file_client.exe
 /Users/Priebe/Library/Mobile Documents/com~apple~CloudDocs/Education/AU/I4IKN/Exercises/Øvelse-08/Exercise_8_c#/file_client/obj/x86/Debug/file_client.exe
 /Users/Priebe/Library/Mobile Documents/com~apple~CloudDocs/Education/AU/I4IKN/Exercises/Øvelse-08/Exercise_8_c#/file_client/obj/x86/Debug/file_client.exe.mdb
+/root/Desktop/file_client/obj/x86/Debug/.NETFramework,Version=v4.0.AssemblyAttribute.cs
+/root/Desktop/file_client/bin/Debug/file_client.exe.mdb
+/root/Desktop/file_client/bin/Debug/file_client.exe
+/root/Desktop/file_client/obj/x86/Debug/file_client.exe
+/root/Desktop/file_client/obj/x86/Debug/file_client.exe.mdb

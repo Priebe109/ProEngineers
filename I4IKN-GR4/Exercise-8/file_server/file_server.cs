@@ -38,21 +38,21 @@ namespace tcp
 			clientSocket = serverSocket.AcceptTcpClient();
 			Console.WriteLine(" >> Accept connection from client");
 
-			while (true)
+			while (requestCount == 0)
 			{
 				try
 				{
 					// Receive bytes from client and convert to string.
 					requestCount += 1;
 					NetworkStream networkStream = clientSocket.GetStream();
-					byte[] bytesFrom = new byte[BUFSIZE];
+					byte[] bytesFrom = new byte[BUFSIZE];	
 					networkStream.Read(bytesFrom, 0, (int)clientSocket.ReceiveBufferSize);
 					string dataFromClient = System.Text.Encoding.ASCII.GetString(bytesFrom);
 					dataFromClient = dataFromClient.Substring(0, dataFromClient.IndexOf("$"));
 
 					// Send response to client.
 					Console.WriteLine(" >> Data from client: " + dataFromClient);
-					string serverResponse = "Last Message from client" + dataFromClient;
+					string serverResponse = "Last Message from client: " + dataFromClient;
 					Byte[] sendBytes = System.Text.Encoding.ASCII.GetBytes(serverResponse);
 					networkStream.Write(sendBytes, 0, sendBytes.Length);
 					networkStream.Flush();
@@ -66,7 +66,7 @@ namespace tcp
 			}
 		}
 
-		private void closeConnection(NetworkStream clientSocket, TcpListener serverSocket)
+		private void closeConnection(TcpClient clientSocket, TcpListener serverSocket)
 		{
 			clientSocket.Close();
 			serverSocket.Stop();

@@ -43,6 +43,9 @@ namespace tcp
 			filePath = args [1];
 
 			// Connect to the server using a TCP connection socket, and send a file request.
+			clientSocket.ReceiveBufferSize = BUFSIZE;  //FIX
+			clientSocket.SendBufferSize = BUFSIZE;
+
 			clientSocket.Connect (fileServerIp, PORT);
 			sendFileRequest (filePath, clientSocket.GetStream ());
 		}
