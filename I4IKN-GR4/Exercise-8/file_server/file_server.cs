@@ -27,21 +27,22 @@ namespace tcp
 		/// </summary>
 		private file_server ()
 		{
-			// TO DO Your own code
-			//TcpListener serverSocket = new TcpListener(PORT);
+			// Opretter en socket.
 			TcpListener serverSocket = new TcpListener(PORT);
 			int requestCount = 0;
 			TcpClient clientSocket = default(TcpClient);
 			serverSocket.Start();
 			Console.WriteLine(" >> Server Started");
+
+			/// Venter på en connect fra en klient.
 			clientSocket = serverSocket.AcceptTcpClient();
 			Console.WriteLine(" >> Accept connection from client");
-			//requestCount = 0;
 
-			while ((true))
+			while (true)
 			{
 				try
 				{
+					// Receive bytes from client and convert to string.
 					requestCount += 1;
 					NetworkStream networkStream = clientSocket.GetStream();
 					byte[] bytesFrom = new byte[BUFSIZE];
@@ -49,6 +50,7 @@ namespace tcp
 					string dataFromClient = System.Text.Encoding.ASCII.GetString(bytesFrom);
 					dataFromClient = dataFromClient.Substring(0, dataFromClient.IndexOf("$"));
 
+					// Send response to client.
 					Console.WriteLine(" >> Data from client: " + dataFromClient);
 					string serverResponse = "Last Message from client" + dataFromClient;
 					Byte[] sendBytes = System.Text.Encoding.ASCII.GetBytes(serverResponse);
@@ -59,9 +61,13 @@ namespace tcp
 				catch (Exception ex)
 				{
 					Console.WriteLine(ex.ToString());
+					closeConnection (clientSocket, serverSocket);
 				}
 			}
+		}
 
+		private void closeConnection(NetworkStream clientSocket, TcpListener serverSocket)
+		{
 			clientSocket.Close();
 			serverSocket.Stop();
 			Console.WriteLine(" >> exit");
