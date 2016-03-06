@@ -1,0 +1,1 @@
+\\psf\Home\Git\ProEngineers\I4SWT-GR1\Designing for Testability - ECS\ECS Legacy Solution\ECS.Legacy\bin\Debug\ECS.Legacy.exe.config

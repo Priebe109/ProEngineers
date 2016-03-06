@@ -1,0 +1,231 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<logicalClassDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" dslVersion="1.0.0.0" Id="c7ba8b71-a853-4d53-9522-4c54d9a59967" name="ECS.Legacy" linkedPackageId="9619f7b1-f927-470f-add3-6445483a98aa" xmlns="http://schemas.microsoft.com/dsltools/LogicalClassDesigner">
+  <profileInstances>
+    <packageHasProfileInstances Id="6b2e1485-0c5c-475e-89b2-4350b43835b8">
+      <profileInstance Id="5b08a374-1ffa-4e1b-ac6a-8c2cb7702402" name="StandardProfileL2">
+        <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+      </profileInstance>
+      <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances Id="67aa2f6f-0f5e-4461-92e4-48fa341844a1">
+      <profileInstance Id="5de0943e-90aa-4cd0-abd4-1fa2dd9f9538" name="StandardProfileL3">
+        <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+      </profileInstance>
+      <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+    </packageHasProfileInstances>
+  </profileInstances>
+  <packagedElements>
+    <packageHasNamedElement>
+      <referencedType Id="78bba318-e47d-4410-b761-1ca0f5cf9701" name="int" isAbstract="false" isLeaf="false" cachedFullName="int">
+        <elementDefinition Id="36800cef-db42-428c-9f6a-452334818b49" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="ee087d79-d22b-4e1a-a8b9-031b74219187" name="TempSensor" isAbstract="false" isLeaf="false" cachedFullName="TempSensor">
+        <elementDefinition Id="ec8a35d8-14aa-4420-aa9a-c827e08c5be3" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="749bff6b-3a92-41cc-a113-3a66f4d602c7" name="Heater" isAbstract="false" isLeaf="false" cachedFullName="Heater">
+        <elementDefinition Id="96a3d1c9-0edc-4c8b-bfa1-c90608d6653e" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="c7421d0f-b6c4-44c3-b7c6-7ae3f9205d34" name="bool" isAbstract="false" isLeaf="false" cachedFullName="bool">
+        <elementDefinition Id="5ee07143-a8df-4f2b-a0f5-174ba5e1b359" />
+      </referencedType>
+    </packageHasNamedElement>
+    <logicalClassDesignerModelHasPackages>
+      <package Id="6ea32336-8755-47d2-b87b-90a161480cbf" name="ECS.Legacy">
+        <elementDefinition Id="5a862fd8-c31b-403e-9dd8-dd8cb70b6f3b" />
+        <packagedElements>
+          <packageHasNamedElement>
+            <class Id="18f38015-b868-4d9e-93b8-8960ce671dfe" name="ECS" isAbstract="false" isLeaf="false" isActiveClass="false">
+              <elementDefinition Id="3ece155a-8767-4cc8-b03c-3d0107dd888e" />
+              <targetEnds>
+                <association Id="53e2b17d-e904-470a-bc7b-31a2281ca014" isDerived="false" sourceEndRoleName="ECS" targetEndRoleName="Heater" isLeaf="false" isAbstract="false">
+                  <classMoniker Id="4683b9f6-b641-4e06-9de6-2abc36172e3d" LastKnownName="Heater" />
+                  <relationshipOwnedElementsInternal>
+                    <associationHasOwnedEnds>
+                      <memberEnd Id="71168f4f-189a-4f13-bd8d-488272a77064" name="ECS" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                        <elementDefinition Id="0ded6137-5939-4e53-8b56-69160e4faee3" />
+                      </memberEnd>
+                    </associationHasOwnedEnds>
+                    <associationHasOwnedEnds>
+                      <memberEnd Id="cb624a2d-2221-41c5-9031-dd5e690bfcef" name="Heater" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                        <elementDefinition Id="8debcc10-5272-4263-84e6-a9b8feb59b9c" />
+                      </memberEnd>
+                    </associationHasOwnedEnds>
+                  </relationshipOwnedElementsInternal>
+                  <elementDefinition Id="03648dae-838a-49d4-8031-3a281c9c9be7" />
+                </association>
+                <association Id="7a4a1b6c-650c-48a9-a05d-b27f32d6c82c" isDerived="false" sourceEndRoleName="ECS" targetEndRoleName="TempSensor" isLeaf="false" isAbstract="false">
+                  <classMoniker Id="3b3ab184-151d-48c0-9057-43cb0e454f4d" LastKnownName="TempSensor" />
+                  <relationshipOwnedElementsInternal>
+                    <associationHasOwnedEnds>
+                      <memberEnd Id="33c372b7-e1c8-4214-9594-0afa49f2b437" name="ECS" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                        <elementDefinition Id="ddec28c6-996e-41a6-b956-4468806da6bc" />
+                      </memberEnd>
+                    </associationHasOwnedEnds>
+                    <associationHasOwnedEnds>
+                      <memberEnd Id="37865b14-1f9a-409f-b47e-8f908413563a" name="TempSensor" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                        <elementDefinition Id="efad038e-643f-4e8d-8c8a-61fd5e509ec3" />
+                      </memberEnd>
+                    </associationHasOwnedEnds>
+                  </relationshipOwnedElementsInternal>
+                  <elementDefinition Id="24633405-f849-4e81-8291-170b9856c549" />
+                </association>
+              </targetEnds>
+              <ownedAttributesInternal>
+                <property Id="49db297b-491f-4fb1-b68b-b5467f273a75" name="_threshold" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="51ed0043-0da3-4825-9223-d1a4b4c74f94" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="78bba318-e47d-4410-b761-1ca0f5cf9701" LastKnownName="int" />
+                  </type_NamedElement>
+                </property>
+                <property Id="16adeeb8-3639-4434-8acd-1c6d740e0f93" name="_tempSensor" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="72fec663-57a9-4e7b-a8b6-653dfcae8905" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="ee087d79-d22b-4e1a-a8b9-031b74219187" LastKnownName="TempSensor" />
+                  </type_NamedElement>
+                </property>
+                <property Id="f6ba226b-d56b-4d69-900e-f9680bd05b27" name="_heater" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="a6b1355a-de54-4808-b2d8-aeab40c9823b" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="749bff6b-3a92-41cc-a113-3a66f4d602c7" LastKnownName="Heater" />
+                  </type_NamedElement>
+                </property>
+              </ownedAttributesInternal>
+              <ownedOperationsInternal>
+                <operation Id="2b7722db-d32f-4945-b38f-017873e76064" name="ECS" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+                  <elementDefinition Id="a557234b-8f42-4c2f-bff1-6c7dc2fc2ae9" />
+                  <ownedParameters>
+                    <operationHasOwnedParameters>
+                      <parameter Id="f41828fe-f68f-489b-8b5a-21fbd24245c7" name="int thr" direction="In" isUnique="false">
+                        <elementDefinition Id="0e1f362b-3dd0-450f-b789-ed11851370d1" />
+                      </parameter>
+                    </operationHasOwnedParameters>
+                  </ownedParameters>
+                </operation>
+                <operation Id="b4c02bb0-73df-4406-9e48-0746b67f276c" name="Regulate" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+                  <elementDefinition Id="f29c4c36-2482-4904-8eac-340e0107fdd8" />
+                </operation>
+                <operation Id="f46b5fec-ef0b-4fde-b656-806413485b89" name="SetThreshold" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+                  <elementDefinition Id="4d963b81-0aae-42b0-a20c-601eb44bc9c1" />
+                  <ownedParameters>
+                    <operationHasOwnedParameters>
+                      <parameter Id="d7b91e6c-dca2-43c5-9b32-0c75703ec09d" name="int thr" direction="In" isUnique="false">
+                        <elementDefinition Id="0db4d86f-2a41-4fd0-8e0e-01b1952d1fd4" />
+                      </parameter>
+                    </operationHasOwnedParameters>
+                  </ownedParameters>
+                </operation>
+                <operation Id="5636543f-4c20-41ba-9dd4-bb705117e12c" name="GetThreshold" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+                  <elementDefinition Id="6b5513eb-3c07-46d4-a8a8-38182c52c47b" />
+                  <ownedParameters>
+                    <operationHasOwnedParameters>
+                      <parameter Id="a79b7bbe-f6c5-4fd8-a062-88b0fa93c791" direction="Return" isUnique="false">
+                        <elementDefinition Id="addfc0ff-db5b-41b7-a98d-54f7834ff700" />
+                        <type_NamedElement>
+                          <referencedTypeMoniker Id="78bba318-e47d-4410-b761-1ca0f5cf9701" LastKnownName="int" />
+                        </type_NamedElement>
+                      </parameter>
+                    </operationHasOwnedParameters>
+                  </ownedParameters>
+                </operation>
+                <operation Id="b4cb34ac-26ea-441a-8579-d701a7034eeb" name="GetCurTemp" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+                  <elementDefinition Id="e1f892d6-d1cd-40d9-a62e-396ada078e0e" />
+                  <ownedParameters>
+                    <operationHasOwnedParameters>
+                      <parameter Id="30ff68a9-936f-4cca-b96e-34b34f8bc40f" direction="Return" isUnique="false">
+                        <elementDefinition Id="26c74243-3666-4827-9bdc-b2792b4acc46" />
+                        <type_NamedElement>
+                          <referencedTypeMoniker Id="78bba318-e47d-4410-b761-1ca0f5cf9701" LastKnownName="int" />
+                        </type_NamedElement>
+                      </parameter>
+                    </operationHasOwnedParameters>
+                  </ownedParameters>
+                </operation>
+                <operation Id="717b9ba5-ee6c-4ceb-9a53-173a2a5c198a" name="RunSelfTest" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+                  <elementDefinition Id="cda9f750-976f-45c4-8f8a-abf32cc6ecae" />
+                  <ownedParameters>
+                    <operationHasOwnedParameters>
+                      <parameter Id="b92299f3-24d3-4293-8f8e-a70ae12cfd15" direction="Return" isUnique="false">
+                        <elementDefinition Id="9615eb81-1fa5-4c2b-b83c-5e72c20e5b98" />
+                        <type_NamedElement>
+                          <referencedTypeMoniker Id="c7421d0f-b6c4-44c3-b7c6-7ae3f9205d34" LastKnownName="bool" />
+                        </type_NamedElement>
+                      </parameter>
+                    </operationHasOwnedParameters>
+                  </ownedParameters>
+                </operation>
+              </ownedOperationsInternal>
+            </class>
+          </packageHasNamedElement>
+          <packageHasNamedElement>
+            <class Id="3b3ab184-151d-48c0-9057-43cb0e454f4d" name="TempSensor" isAbstract="false" isLeaf="false" isActiveClass="false">
+              <elementDefinition Id="585043c5-6f6d-46e2-82af-cc30c4b07d2a" />
+              <ownedOperationsInternal>
+                <operation Id="3df56cce-76b9-4b1c-ae4d-e05ffd9e573b" name="RunSelfTest" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+                  <elementDefinition Id="2008bac4-5145-4e22-9099-b6cf1971dbb2" />
+                  <ownedParameters>
+                    <operationHasOwnedParameters>
+                      <parameter Id="4b81caac-d495-4325-876f-ba768df38309" direction="Return" isUnique="false">
+                        <elementDefinition Id="82a38744-7c53-4580-b04d-bdb2c7ae414e" />
+                        <type_NamedElement>
+                          <referencedTypeMoniker Id="c7421d0f-b6c4-44c3-b7c6-7ae3f9205d34" LastKnownName="bool" />
+                        </type_NamedElement>
+                      </parameter>
+                    </operationHasOwnedParameters>
+                  </ownedParameters>
+                </operation>
+                <operation Id="0090e2d4-cf12-4392-bbf3-fbba5cb76687" name="GetTemp" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+                  <elementDefinition Id="f9c857ec-6485-4254-a443-950efbff50fc" />
+                  <ownedParameters>
+                    <operationHasOwnedParameters>
+                      <parameter Id="d32eac4b-c691-4d57-b5fc-bdcd5d8608d1" direction="Return" isUnique="false">
+                        <elementDefinition Id="29d44d02-8d1a-49ea-ab62-d7169af7a38a" />
+                        <type_NamedElement>
+                          <referencedTypeMoniker Id="78bba318-e47d-4410-b761-1ca0f5cf9701" LastKnownName="int" />
+                        </type_NamedElement>
+                      </parameter>
+                    </operationHasOwnedParameters>
+                  </ownedParameters>
+                </operation>
+              </ownedOperationsInternal>
+            </class>
+          </packageHasNamedElement>
+          <packageHasNamedElement>
+            <class Id="4683b9f6-b641-4e06-9de6-2abc36172e3d" name="Heater" isAbstract="false" isLeaf="false" isActiveClass="false">
+              <elementDefinition Id="a354a541-7c88-475d-8011-d754e20f3a86" />
+              <ownedOperationsInternal>
+                <operation Id="3bae8c4b-c390-4ec1-8824-3beae3e6fb46" name="TurnOn" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+                  <elementDefinition Id="91e4619b-990d-4b78-9174-553cdaed9a27" />
+                </operation>
+                <operation Id="e119eecf-9aba-4e55-8420-3c07ffb31248" name="TurnOff" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+                  <elementDefinition Id="399b1c1e-e6da-4631-a1c1-b3853bcceee0" />
+                </operation>
+                <operation Id="8e70d7f5-8fbe-46a7-89a9-2ef3836f9922" name="RunSelfTest" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+                  <elementDefinition Id="a36a8f3f-44cc-40eb-8d67-cdae9778eacb" />
+                  <ownedParameters>
+                    <operationHasOwnedParameters>
+                      <parameter Id="02cd08a5-6f87-48ec-bbdc-1d07d401690e" direction="Return" isUnique="false">
+                        <elementDefinition Id="f1e39908-a647-4b93-ae92-f6e286cd81eb" />
+                        <type_NamedElement>
+                          <referencedTypeMoniker Id="c7421d0f-b6c4-44c3-b7c6-7ae3f9205d34" LastKnownName="bool" />
+                        </type_NamedElement>
+                      </parameter>
+                    </operationHasOwnedParameters>
+                  </ownedParameters>
+                </operation>
+              </ownedOperationsInternal>
+            </class>
+          </packageHasNamedElement>
+        </packagedElements>
+      </package>
+    </logicalClassDesignerModelHasPackages>
+  </packagedElements>
+  <package Id="9619f7b1-f927-470f-add3-6445483a98aa" name="ECS.Legacy.Design">
+    <elementDefinition Id="36da2e1e-9d8c-48fb-a8ed-ec53d00e15f5" />
+  </package>
+</logicalClassDesignerModel>
