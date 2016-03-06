@@ -30,18 +30,24 @@ namespace SchedulerHandout
 
         public void Spawn(string name, Priority priority)
         {
-            for (var i = 0; i < Enum.GetNames(typeof (Priority)).Length; i++)
+            AssertThreadNotExisting(name);
+            _threads[(int) priority].Add(name);
+            NThreads++;
+        }
+
+        private void AssertThreadNotExisting(string name)
+        {
+            // Throws an exception if thread already exists.
+            for (var i = 0; i < Enum.GetNames(typeof(Priority)).Length; i++)
             {
                 for (var j = 0; j < _threads[i].Count; j++)
                 {
                     if (_threads[i][j] == name)
                     {
-                        throw new ArgumentException("Thread already exists");
+                        throw new ArgumentException(string.Format($"Thread named {name} already exists"));
                     }
                 }
             }
-            _threads[(int) priority].Add(name);
-            NThreads++;
         }
 
         public void Schedule()
@@ -114,6 +120,56 @@ namespace SchedulerHandout
             }
 
             throw new ArgumentException(string.Format($"Thread named '{name}' doesn't exists"));
+        }
+
+        public Priority GetPriority(string name)
+        {
+            // Look search through the array of lists with threads.
+            for (var i = 0; i < Enum.GetNames(typeof(Priority)).Length; i++)
+            {
+                for (var j = 0; j < _threads[i].Count; j++)
+                {
+                    var threadName = _threads[i][j];
+                    if (threadName != name) continue;
+
+                    // Return the threads priority.
+                    switch (i)
+                    {
+                        case 0:
+                            return Priority.High;
+                        case 1:
+                            return Priority.Med;
+                        default:
+                            return Priority.Low;
+                    }
+                }
+            }
+
+            throw new ArgumentException(string.Format($"Thread named '{name}' doesn't exists"));
+        }
+
+        public void Rename(string name, string newName)
+        {
+            AssertThreadNotExisting(newName);
+
+            // Check if the thread exists, if so rename it to the new name.
+            for (var i = 0; i < Enum.GetNames(typeof(Priority)).Length; i++)
+            {
+                for (var j = 0; j < _threads[i].Count; j++)
+                {
+                    if (_threads[i][j] != name) continue;
+                    _threads[i][j] = newName;
+                    return;
+                }
+            }
+
+            throw new ArgumentException(string.Format($"Thread named '{name}' doesn't exists"));
+        }
+
+        public int GetNThreads(Priority pri)
+        {
+            // Returns the number of threads at a given priority.
+            return _threads[(int) pri].Count;
         }
     }
 }
