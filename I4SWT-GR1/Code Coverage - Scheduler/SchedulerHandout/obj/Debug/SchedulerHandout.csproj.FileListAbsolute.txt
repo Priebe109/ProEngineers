@@ -1,0 +1,10 @@
+Z:\Users\Priebe\Git\I4SWT\repo01\SchedulerHandout\SchedulerHandout\bin\Debug\SchedulerHandout.dll
+Z:\Users\Priebe\Git\I4SWT\repo01\SchedulerHandout\SchedulerHandout\bin\Debug\SchedulerHandout.pdb
+Z:\Users\Priebe\Git\I4SWT\repo01\SchedulerHandout\SchedulerHandout\obj\Debug\SchedulerHandout.csprojResolveAssemblyReference.cache
+Z:\Users\Priebe\Git\I4SWT\repo01\SchedulerHandout\SchedulerHandout\obj\Debug\SchedulerHandout.dll
+Z:\Users\Priebe\Git\I4SWT\repo01\SchedulerHandout\SchedulerHandout\obj\Debug\SchedulerHandout.pdb
+\\psf\Home\Git\ProEngineers\I4SWT-GR1\Code Coverage - Scheduler\SchedulerHandout\bin\Debug\SchedulerHandout.dll
+\\psf\Home\Git\ProEngineers\I4SWT-GR1\Code Coverage - Scheduler\SchedulerHandout\bin\Debug\SchedulerHandout.pdb
+\\psf\Home\Git\ProEngineers\I4SWT-GR1\Code Coverage - Scheduler\SchedulerHandout\obj\Debug\SchedulerHandout.csprojResolveAssemblyReference.cache
+\\psf\Home\Git\ProEngineers\I4SWT-GR1\Code Coverage - Scheduler\SchedulerHandout\obj\Debug\SchedulerHandout.dll
+\\psf\Home\Git\ProEngineers\I4SWT-GR1\Code Coverage - Scheduler\SchedulerHandout\obj\Debug\SchedulerHandout.pdb

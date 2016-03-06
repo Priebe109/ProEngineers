@@ -1,0 +1,18 @@
+Z:\Users\Priebe\Git\I4SWT\repo01\SchedulerHandout\Scheduler.Test.Unit\bin\Debug\Scheduler.Test.Unit.dll
+Z:\Users\Priebe\Git\I4SWT\repo01\SchedulerHandout\Scheduler.Test.Unit\bin\Debug\Scheduler.Test.Unit.pdb
+Z:\Users\Priebe\Git\I4SWT\repo01\SchedulerHandout\Scheduler.Test.Unit\bin\Debug\nunit.framework.dll
+Z:\Users\Priebe\Git\I4SWT\repo01\SchedulerHandout\Scheduler.Test.Unit\bin\Debug\SchedulerHandout.dll
+Z:\Users\Priebe\Git\I4SWT\repo01\SchedulerHandout\Scheduler.Test.Unit\bin\Debug\SchedulerHandout.pdb
+Z:\Users\Priebe\Git\I4SWT\repo01\SchedulerHandout\Scheduler.Test.Unit\bin\Debug\nunit.framework.xml
+Z:\Users\Priebe\Git\I4SWT\repo01\SchedulerHandout\Scheduler.Test.Unit\obj\Debug\Scheduler.Test.Unit.csprojResolveAssemblyReference.cache
+Z:\Users\Priebe\Git\I4SWT\repo01\SchedulerHandout\Scheduler.Test.Unit\obj\Debug\Scheduler.Test.Unit.dll
+Z:\Users\Priebe\Git\I4SWT\repo01\SchedulerHandout\Scheduler.Test.Unit\obj\Debug\Scheduler.Test.Unit.pdb
+\\psf\Home\Git\ProEngineers\I4SWT-GR1\Code Coverage - Scheduler\Scheduler.Test.Unit\bin\Debug\Scheduler.Test.Unit.dll
+\\psf\Home\Git\ProEngineers\I4SWT-GR1\Code Coverage - Scheduler\Scheduler.Test.Unit\bin\Debug\Scheduler.Test.Unit.pdb
+\\psf\Home\Git\ProEngineers\I4SWT-GR1\Code Coverage - Scheduler\Scheduler.Test.Unit\bin\Debug\nunit.framework.dll
+\\psf\Home\Git\ProEngineers\I4SWT-GR1\Code Coverage - Scheduler\Scheduler.Test.Unit\bin\Debug\SchedulerHandout.dll
+\\psf\Home\Git\ProEngineers\I4SWT-GR1\Code Coverage - Scheduler\Scheduler.Test.Unit\bin\Debug\SchedulerHandout.pdb
+\\psf\Home\Git\ProEngineers\I4SWT-GR1\Code Coverage - Scheduler\Scheduler.Test.Unit\bin\Debug\nunit.framework.xml
+\\psf\Home\Git\ProEngineers\I4SWT-GR1\Code Coverage - Scheduler\Scheduler.Test.Unit\obj\Debug\Scheduler.Test.Unit.csprojResolveAssemblyReference.cache
+\\psf\Home\Git\ProEngineers\I4SWT-GR1\Code Coverage - Scheduler\Scheduler.Test.Unit\obj\Debug\Scheduler.Test.Unit.dll
+\\psf\Home\Git\ProEngineers\I4SWT-GR1\Code Coverage - Scheduler\Scheduler.Test.Unit\obj\Debug\Scheduler.Test.Unit.pdb
