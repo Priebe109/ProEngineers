@@ -21,7 +21,7 @@ namespace SchedulerHandout
         public Scheduler()
         {
             _threads = new List<string>[Enum.GetNames(typeof (Priority)).Length]; // Create threads array
-            for (var i = 0; i < _threads.Count(); i++)
+            for (var i = 0; i < _threads.Length; i++)
             {
                 _threads[i] = new List<string>();
             }
@@ -36,7 +36,7 @@ namespace SchedulerHandout
                 {
                     if (_threads[i][j] == name)
                     {
-                        throw new System.ArgumentException("Thread already exists");
+                        throw new ArgumentException("Thread already exists");
                     }
                 }
             }
@@ -46,50 +46,44 @@ namespace SchedulerHandout
 
         public void Schedule()
         {
-            string _name;
+            string name;
 
             if (_threads[(int) Priority.High].Count != 0)
             {
-                _name = _threads[(int) Priority.High].First();
+                name = _threads[(int) Priority.High].First();
             }
             else if (_threads[(int) Priority.Med].Count != 0)
             {
-                _name = _threads[(int)Priority.Med].First();
+                name = _threads[(int)Priority.Med].First();
             }
             else if (_threads[(int) Priority.Low].Count != 0)
             {
-                _name = _threads[(int) Priority.Low].First();
+                name = _threads[(int) Priority.Low].First();
             }
             else
             {
 				throw new NoThreadsException("There are no threads to schedule");
             }
 
-            ActiveThread = _name;
+            ActiveThread = name;
         }
 
         public void Kill(string name)
         {
-            string threadName;
-
             // Look search through the array of lists with threads.
             for (var i = 0; i < Enum.GetNames(typeof(Priority)).Length; i++)
             {
                 for (var j = 0; j < _threads[i].Count; j++)
                 {
-                    threadName = _threads[i][j];
+                    var threadName = _threads[i][j];
                     if (threadName != name) continue;
 
                     // If thread is matched, remove it.
                     _threads[i].RemoveAt(j);
                     NThreads--;
 
-                    // Reschedule if removed thread was active.
-                    if (NThreads > 1 && threadName == ActiveThread)
-                    {
-                        Schedule();
-                    }
-                    else if (NThreads == 1)
+                    // Check if active thread should be set to null.
+                    if (NThreads == 0 || threadName == ActiveThread)
                     {
                         ActiveThread = null;
                     }
@@ -98,7 +92,7 @@ namespace SchedulerHandout
                 }
             }
 
-            throw new System.ArgumentException(string.Format($"Thread named '{name}' doesn't exists"));
+            throw new ArgumentException(string.Format($"Thread named '{name}' doesn't exists"));
         }
 
         public void SetPriority(string name, Priority pri)
@@ -115,12 +109,11 @@ namespace SchedulerHandout
 
                     // Add the thread to the new priority list and reschedule.
                     _threads[(int)pri].Add(name);
-                    Schedule();
                     return;
                 }
             }
 
-            throw new System.ArgumentException(string.Format($"Thread named '{name}' doesn't exists"));
+            throw new ArgumentException(string.Format($"Thread named '{name}' doesn't exists"));
         }
     }
 }
