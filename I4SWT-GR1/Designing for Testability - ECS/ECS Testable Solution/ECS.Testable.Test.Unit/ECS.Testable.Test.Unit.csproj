@@ -46,6 +46,8 @@
   <ItemGroup>
     <Compile Include="EcsUnitTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StubHeater.cs" />
+    <Compile Include="StubTempSensor.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

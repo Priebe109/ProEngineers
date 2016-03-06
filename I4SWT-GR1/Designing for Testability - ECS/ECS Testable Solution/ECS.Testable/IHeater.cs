@@ -18,7 +18,6 @@ namespace ECS.Testable
 		void TurnOff();
 
 		void TurnOn();
-
 	}
 }
 
