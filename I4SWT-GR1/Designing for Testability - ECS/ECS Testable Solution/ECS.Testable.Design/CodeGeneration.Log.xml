@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="file:///C:/PROGRAM FILES (X86)/MICROSOFT VISUAL STUDIO 14.0/COMMON7/IDE/EXTENSIONS/MICROSOFT/ARCHITECTURE TOOLS/EXTENSIBILITY/Logging/CodeGenLog.xslt"?>
+<Log xmlns="http://schemas.microsoft.com/VisualStudio/2010/CodeGen.RE.Log" Label="Code Generation/Text Transformation Log">
+  <MessageClass Name="Message" Label="Message" Option="Show informational messages" />
+  <MessageClass Name="Warning" Label="Warning" Option="Show warnings" />
+  <MessageClass Name="Error" Label="Error" Option="Show errors" />
+  <MessageClass Name="Property" Label="Property" Option="Show metadata" />
+  <MessageClass Name="Diagnostic" Label="Message" Option="Show diagnostic messages" />
+  <Message Timestamp="2016-03-06T17:47:19" Importance="High" Text="Code generation or text transformation started." />
+  <Message Timestamp="2016-03-06T17:47:19" Importance="Diagnostic" Text="Name = ClassTemplate" />
+  <Message Timestamp="2016-03-06T17:47:19" Importance="Diagnostic" Text="Overwrite = True" />
+  <Message Timestamp="2016-03-06T17:47:19" Importance="Diagnostic" Text="ProjectPath = ..\ECS.Legacy.DesignLib\ECS.Legacy.DesignLib.csproj" />
+  <Message Timestamp="2016-03-06T17:47:19" Importance="Diagnostic" Text="TargetDirectory = GeneratedCode\{PackageStructure}" />
+  <Message Timestamp="2016-03-06T17:47:19" Importance="Diagnostic" Text="TargetName = {Name}" />
+  <Message Timestamp="2016-03-06T17:47:19" Importance="Diagnostic" Text="TemplateFilePath = C:\PROGRAM FILES (X86)\MICROSOFT VISUAL STUDIO 14.0\COMMON7\IDE\EXTENSIONS\MICROSOFT\ARCHITECTURE TOOLS\EXTENSIBILITY\Templates\Text\ClassTemplate.t4" />
+  <Message Timestamp="2016-03-06T17:47:19" Importance="Diagnostic" Text="ResolvedTemplateFilePath = C:\PROGRAM FILES (X86)\MICROSOFT VISUAL STUDIO 14.0\COMMON7\IDE\EXTENSIONS\MICROSOFT\ARCHITECTURE TOOLS\EXTENSIBILITY\Templates\Text\ClassTemplate.t4" />
+  <Message Timestamp="2016-03-06T17:47:19" Importance="Medium" Text="ECS.Legacy.Design's Text Template Binding: 'ClassTemplate' will apply ClassTemplate.t4 to: 'ECS.Legacy.Design::ECS.Testable::ECS' -  (Class), 'ECS.Legacy.Design::ECS.Testable::Heater' -  (Class), 'ECS.Legacy.Design::ECS.Testable::StubHeater' -  (Class), 'ECS.Legacy.Design::ECS.Testable::TempSensor' -  (Class), 'ECS.Legacy.Design::ECS.Testable::StubTempSensor' -  (Class) " />
+  <Message Timestamp="2016-03-06T17:47:36" Importance="Medium" Text="Project Added: \\psf\Home\Git\ProEngineers\I4SWT-GR1\Designing for Testability - ECS\ECS Testable Solution\ECS.Legacy.DesignLib\ECS.Legacy.DesignLib.csproj" />
+  <Message Timestamp="2016-03-06T17:47:37" Importance="Medium" Text="'ECS.Legacy.Design::ECS.Testable::ECS' -  (Class) : success (file created) - \\psf\Home\Git\ProEngineers\I4SWT-GR1\Designing for Testability - ECS\ECS Testable Solution\ECS.Legacy.DesignLib\GeneratedCode\ECS.Testable\ECS.cs" />
+  <Message Timestamp="2016-03-06T17:47:37" Importance="Medium" Text="'ECS.Legacy.Design::ECS.Testable::Heater' -  (Class) : success (file created) - \\psf\Home\Git\ProEngineers\I4SWT-GR1\Designing for Testability - ECS\ECS Testable Solution\ECS.Legacy.DesignLib\GeneratedCode\ECS.Testable\Heater.cs" />
+  <Message Timestamp="2016-03-06T17:47:38" Importance="Medium" Text="'ECS.Legacy.Design::ECS.Testable::StubHeater' -  (Class) : success (file created) - \\psf\Home\Git\ProEngineers\I4SWT-GR1\Designing for Testability - ECS\ECS Testable Solution\ECS.Legacy.DesignLib\GeneratedCode\ECS.Testable\StubHeater.cs" />
+  <Message Timestamp="2016-03-06T17:47:38" Importance="Medium" Text="'ECS.Legacy.Design::ECS.Testable::TempSensor' -  (Class) : success (file created) - \\psf\Home\Git\ProEngineers\I4SWT-GR1\Designing for Testability - ECS\ECS Testable Solution\ECS.Legacy.DesignLib\GeneratedCode\ECS.Testable\TempSensor.cs" />
+  <Message Timestamp="2016-03-06T17:47:38" Importance="Medium" Text="'ECS.Legacy.Design::ECS.Testable::StubTempSensor' -  (Class) : success (file created) - \\psf\Home\Git\ProEngineers\I4SWT-GR1\Designing for Testability - ECS\ECS Testable Solution\ECS.Legacy.DesignLib\GeneratedCode\ECS.Testable\StubTempSensor.cs" />
+  <Message Timestamp="2016-03-06T17:47:38" Importance="Diagnostic" Text="Name = InterfaceTemplate" />
+  <Message Timestamp="2016-03-06T17:47:38" Importance="Diagnostic" Text="Overwrite = True" />
+  <Message Timestamp="2016-03-06T17:47:38" Importance="Diagnostic" Text="ProjectPath = ..\ECS.Legacy.DesignLib\ECS.Legacy.DesignLib.csproj" />
+  <Message Timestamp="2016-03-06T17:47:38" Importance="Diagnostic" Text="TargetDirectory = GeneratedCode\{PackageStructure}" />
+  <Message Timestamp="2016-03-06T17:47:38" Importance="Diagnostic" Text="TargetName = {Name}" />
+  <Message Timestamp="2016-03-06T17:47:38" Importance="Diagnostic" Text="TemplateFilePath = C:\PROGRAM FILES (X86)\MICROSOFT VISUAL STUDIO 14.0\COMMON7\IDE\EXTENSIONS\MICROSOFT\ARCHITECTURE TOOLS\EXTENSIBILITY\Templates\Text\InterfaceTemplate.t4" />
+  <Message Timestamp="2016-03-06T17:47:38" Importance="Diagnostic" Text="ResolvedTemplateFilePath = C:\PROGRAM FILES (X86)\MICROSOFT VISUAL STUDIO 14.0\COMMON7\IDE\EXTENSIONS\MICROSOFT\ARCHITECTURE TOOLS\EXTENSIBILITY\Templates\Text\InterfaceTemplate.t4" />
+  <Message Timestamp="2016-03-06T17:47:38" Importance="Medium" Text="ECS.Legacy.Design's Text Template Binding: 'InterfaceTemplate' will apply InterfaceTemplate.t4 to: 'ECS.Legacy.Design::ECS.Testable::IHeater' -  (Interface), 'ECS.Legacy.Design::ECS.Testable::ITempSensor' -  (Interface) " />
+  <Message Timestamp="2016-03-06T17:47:39" Importance="Medium" Text="'ECS.Legacy.Design::ECS.Testable::IHeater' -  (Interface) : success (file created) - \\psf\Home\Git\ProEngineers\I4SWT-GR1\Designing for Testability - ECS\ECS Testable Solution\ECS.Legacy.DesignLib\GeneratedCode\ECS.Testable\IHeater.cs" />
+  <Message Timestamp="2016-03-06T17:47:39" Importance="Medium" Text="'ECS.Legacy.Design::ECS.Testable::ITempSensor' -  (Interface) : success (file created) - \\psf\Home\Git\ProEngineers\I4SWT-GR1\Designing for Testability - ECS\ECS Testable Solution\ECS.Legacy.DesignLib\GeneratedCode\ECS.Testable\ITempSensor.cs" />
+  <Message Timestamp="2016-03-06T17:47:39" Importance="Diagnostic" Text="Name = StructTemplate" />
+  <Message Timestamp="2016-03-06T17:47:39" Importance="Diagnostic" Text="Overwrite = True" />
+  <Message Timestamp="2016-03-06T17:47:39" Importance="Diagnostic" Text="ProjectPath = ..\ECS.Legacy.DesignLib\ECS.Legacy.DesignLib.csproj" />
+  <Message Timestamp="2016-03-06T17:47:39" Importance="Diagnostic" Text="TargetDirectory = GeneratedCode\{PackageStructure}" />
+  <Message Timestamp="2016-03-06T17:47:39" Importance="Diagnostic" Text="TargetName = {Name}" />
+  <Message Timestamp="2016-03-06T17:47:39" Importance="Diagnostic" Text="TemplateFilePath = C:\PROGRAM FILES (X86)\MICROSOFT VISUAL STUDIO 14.0\COMMON7\IDE\EXTENSIONS\MICROSOFT\ARCHITECTURE TOOLS\EXTENSIBILITY\Templates\Text\StructTemplate.t4" />
+  <Message Timestamp="2016-03-06T17:47:39" Importance="Diagnostic" Text="ResolvedTemplateFilePath = C:\PROGRAM FILES (X86)\MICROSOFT VISUAL STUDIO 14.0\COMMON7\IDE\EXTENSIONS\MICROSOFT\ARCHITECTURE TOOLS\EXTENSIBILITY\Templates\Text\StructTemplate.t4" />
+  <Message Timestamp="2016-03-06T17:47:39" Importance="Medium" Text="ECS.Legacy.Design's Text Template Binding: 'StructTemplate' will apply StructTemplate.t4 to: 'ECS.Legacy.Design::ECS.Testable::ECS' -  (Class), 'ECS.Legacy.Design::ECS.Testable::Heater' -  (Class), 'ECS.Legacy.Design::ECS.Testable::StubHeater' -  (Class), 'ECS.Legacy.Design::ECS.Testable::TempSensor' -  (Class), 'ECS.Legacy.Design::ECS.Testable::StubTempSensor' -  (Class) " />
+  <Message Timestamp="2016-03-06T17:47:39" Importance="Diagnostic" Text="'ECS.Legacy.Design::ECS.Testable::ECS' -  (Class): no file generated because the 'AppliesToElement' method of the template 'StructTemplate.t4' evaluated to false." />
+  <Message Timestamp="2016-03-06T17:47:39" Importance="Diagnostic" Text="'ECS.Legacy.Design::ECS.Testable::Heater' -  (Class): no file generated because the 'AppliesToElement' method of the template 'StructTemplate.t4' evaluated to false." />
+  <Message Timestamp="2016-03-06T17:47:39" Importance="Diagnostic" Text="'ECS.Legacy.Design::ECS.Testable::StubHeater' -  (Class): no file generated because the 'AppliesToElement' method of the template 'StructTemplate.t4' evaluated to false." />
+  <Message Timestamp="2016-03-06T17:47:39" Importance="Diagnostic" Text="'ECS.Legacy.Design::ECS.Testable::TempSensor' -  (Class): no file generated because the 'AppliesToElement' method of the template 'StructTemplate.t4' evaluated to false." />
+  <Message Timestamp="2016-03-06T17:47:39" Importance="Diagnostic" Text="'ECS.Legacy.Design::ECS.Testable::StubTempSensor' -  (Class): no file generated because the 'AppliesToElement' method of the template 'StructTemplate.t4' evaluated to false." />
+  <Message Timestamp="2016-03-06T17:47:40" Importance="Diagnostic" Text="The selection included 1 elements which were not bound to a template." />
+  <Message Timestamp="2016-03-06T17:47:40" Importance="Diagnostic" Text="'ECS.Legacy.Design::ECS.Testable' -  (Package): no bound template." />
+  <Message Timestamp="2016-03-06T17:47:40" Importance="High" Text="Code generation complete. Errors: 0. Warnings: 0." />
+</Log>

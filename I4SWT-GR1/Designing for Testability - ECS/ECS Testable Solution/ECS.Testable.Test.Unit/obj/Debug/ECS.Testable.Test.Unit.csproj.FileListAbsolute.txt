@@ -1,0 +1,9 @@
+\\psf\Home\Git\ProEngineers\I4SWT-GR1\Designing for Testability - ECS\ECS Testable Solution\ECS.Testable.Test.Unit\bin\Debug\ECS.Testable.Test.Unit.dll
+\\psf\Home\Git\ProEngineers\I4SWT-GR1\Designing for Testability - ECS\ECS Testable Solution\ECS.Testable.Test.Unit\bin\Debug\ECS.Testable.Test.Unit.pdb
+\\psf\Home\Git\ProEngineers\I4SWT-GR1\Designing for Testability - ECS\ECS Testable Solution\ECS.Testable.Test.Unit\bin\Debug\ECS.Legacy.DesignLib.dll
+\\psf\Home\Git\ProEngineers\I4SWT-GR1\Designing for Testability - ECS\ECS Testable Solution\ECS.Testable.Test.Unit\bin\Debug\nunit.framework.dll
+\\psf\Home\Git\ProEngineers\I4SWT-GR1\Designing for Testability - ECS\ECS Testable Solution\ECS.Testable.Test.Unit\bin\Debug\ECS.Legacy.DesignLib.pdb
+\\psf\Home\Git\ProEngineers\I4SWT-GR1\Designing for Testability - ECS\ECS Testable Solution\ECS.Testable.Test.Unit\bin\Debug\nunit.framework.xml
+\\psf\Home\Git\ProEngineers\I4SWT-GR1\Designing for Testability - ECS\ECS Testable Solution\ECS.Testable.Test.Unit\obj\Debug\ECS.Testable.Test.Unit.csprojResolveAssemblyReference.cache
+\\psf\Home\Git\ProEngineers\I4SWT-GR1\Designing for Testability - ECS\ECS Testable Solution\ECS.Testable.Test.Unit\obj\Debug\ECS.Testable.Test.Unit.dll
+\\psf\Home\Git\ProEngineers\I4SWT-GR1\Designing for Testability - ECS\ECS Testable Solution\ECS.Testable.Test.Unit\obj\Debug\ECS.Testable.Test.Unit.pdb

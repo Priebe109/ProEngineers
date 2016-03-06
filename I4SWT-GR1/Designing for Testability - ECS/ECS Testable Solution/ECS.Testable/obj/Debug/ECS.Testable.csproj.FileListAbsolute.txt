@@ -1,0 +1,10 @@
+\\psf\Home\Git\ProEngineers\I4SWT-GR1\Designing for Testability - ECS\ECS Testable Solution\ECS.Legacy.DesignLib\bin\Debug\ECS.Legacy.DesignLib.dll
+\\psf\Home\Git\ProEngineers\I4SWT-GR1\Designing for Testability - ECS\ECS Testable Solution\ECS.Legacy.DesignLib\bin\Debug\ECS.Legacy.DesignLib.pdb
+\\psf\Home\Git\ProEngineers\I4SWT-GR1\Designing for Testability - ECS\ECS Testable Solution\ECS.Legacy.DesignLib\obj\Debug\ECS.Testable.csprojResolveAssemblyReference.cache
+\\psf\Home\Git\ProEngineers\I4SWT-GR1\Designing for Testability - ECS\ECS Testable Solution\ECS.Legacy.DesignLib\obj\Debug\ECS.Legacy.DesignLib.dll
+\\psf\Home\Git\ProEngineers\I4SWT-GR1\Designing for Testability - ECS\ECS Testable Solution\ECS.Legacy.DesignLib\obj\Debug\ECS.Legacy.DesignLib.pdb
+\\psf\Home\Git\ProEngineers\I4SWT-GR1\Designing for Testability - ECS\ECS Testable Solution\ECS.Testable\bin\Debug\ECS.Legacy.DesignLib.dll
+\\psf\Home\Git\ProEngineers\I4SWT-GR1\Designing for Testability - ECS\ECS Testable Solution\ECS.Testable\bin\Debug\ECS.Legacy.DesignLib.pdb
+\\psf\Home\Git\ProEngineers\I4SWT-GR1\Designing for Testability - ECS\ECS Testable Solution\ECS.Testable\obj\Debug\ECS.Testable.csprojResolveAssemblyReference.cache
+\\psf\Home\Git\ProEngineers\I4SWT-GR1\Designing for Testability - ECS\ECS Testable Solution\ECS.Testable\obj\Debug\ECS.Legacy.DesignLib.dll
+\\psf\Home\Git\ProEngineers\I4SWT-GR1\Designing for Testability - ECS\ECS Testable Solution\ECS.Testable\obj\Debug\ECS.Legacy.DesignLib.pdb
