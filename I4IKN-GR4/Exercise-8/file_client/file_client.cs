@@ -55,10 +55,11 @@ namespace tcp
 			}
 
 			// Connect to the server using a TCP connection socket, and send a file request.
-			var stream = clientSocket.GetStream();
 			clientSocket.Connect (fileServerIp, PORT);
+			var stream = clientSocket.GetStream();
 			LIB.writeTextTCP (stream, filePath);
 			receiveFile (LIB.extractFileName(filePath), stream);
+			Console.WriteLine ("Recieved file");
 		}
 
 		private void writeInputInterpretError()
@@ -82,7 +83,7 @@ namespace tcp
 			// Client’en skal modtage den ønskede fil fejlfrit fra serveren – eller udskrive en fejlmelding hvis filen ikke findes i serveren.
 			byte[] outBuffer = new byte[BUFSIZE];
 			int received;
-			FileStream fileStream = new FileStream (fileName, FileMode.CreateNew, FileAccess.ReadWrite);
+			FileStream fileStream = new FileStream (fileName, FileMode.Create, FileAccess.ReadWrite);
 
 			// While received > 0.
 			while ((received = io.Read(outBuffer, 0, outBuffer.Length)) > 0)

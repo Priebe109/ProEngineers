@@ -34,31 +34,17 @@ namespace tcp
 			serverSocket.Start();
 			Console.WriteLine(" >> Server Started");
 
-			/// Venter på en connect fra en klient.
-			clientSocket = serverSocket.AcceptTcpClient();
-			Console.WriteLine(" >> Accept connection from client");
-
-			while (requestCount == 0)
+			while (true)
 			{
+				Console.WriteLine(" >> Server waiting for a client");
+				/// Venter på en connect fra en klient.
+				clientSocket = serverSocket.AcceptTcpClient();	//Crashes if filepath is wrong
+				Console.WriteLine(" >> Accept connection from client");
 				try
 				{
 					// Receive bytes from client and convert to string.
 					requestCount += 1;
 					NetworkStream networkStream = clientSocket.GetStream();
-					/*
-					byte[] bytesFrom = new byte[BUFSIZE];	
-					networkStream.Read(bytesFrom, 0, (int)clientSocket.ReceiveBufferSize);
-					string dataFromClient = System.Text.Encoding.ASCII.GetString(bytesFrom);
-					dataFromClient = dataFromClient.Substring(0, dataFromClient.IndexOf("$"));
-
-					// Send response to client.
-					Console.WriteLine(" >> Data from client: " + dataFromClient);
-					string serverResponse = "Last Message from client: " + dataFromClient;
-					Byte[] sendBytes = System.Text.Encoding.ASCII.GetBytes(serverResponse);
-					networkStream.Write(sendBytes, 0, sendBytes.Length);
-					networkStream.Flush();
-					Console.WriteLine(" >> " + serverResponse);
-					*/
 
 					//Reads text from networkStream with TCP. Checks if file exists and sends file.
 					string readText = LIB.readTextTCP (networkStream);
@@ -66,6 +52,9 @@ namespace tcp
 					long fileCheck = LIB.check_File_Exists (readText);
 
 					sendFile (readText, fileCheck, networkStream);
+
+					clientSocket.Close();
+					Console.WriteLine(" >> Closed client connection");
 				}
 				catch (Exception ex)
 				{
@@ -79,8 +68,7 @@ namespace tcp
 		{
 			clientSocket.Close();
 			serverSocket.Stop();
-			Console.WriteLine(" >> exit");
-			Console.ReadLine();
+			Console.WriteLine(" >> Closed connection");
 		}
 
 		/// <summary>
@@ -116,9 +104,9 @@ namespace tcp
 				var outBuffer = new byte[packetLength];
 				fileStream.Read (outBuffer, 0, packetLength);
 				io.Write (outBuffer, 0, packetLength);
-				Console.WriteLine ("\rSent {1} out of {2} packets", i, packetCount);
+				Console.Write ("\rSent {0} out of {1} packets", i + 1, packetCount);
 			}
-			
+			Console.WriteLine ();
 		}
 
 		/// <summary>
