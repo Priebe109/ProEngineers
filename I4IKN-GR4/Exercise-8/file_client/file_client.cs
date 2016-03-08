@@ -34,41 +34,31 @@ namespace tcp
 
 			// Client-applikationen skal kunne startes fra en terminal med kommandoen:
 			// #./file_client.exe <file_server’s ip-adr.> <[path] + filename>
-			if (args.Length != 2) {
+			int argsCount = args.Length;
+
+			if (argsCount == 2) {
+				// Get main args.
+				fileServerIp = args [0];
+				filePath = args [1];
+
+			} else if (argsCount == 0) {
+				// Ask for args.
+				Console.WriteLine("Enter [server ip] followed by enter");
+				fileServerIp = Console.ReadLine();
+				Console.WriteLine("Enter [file path] followed by enter");
+				filePath = Console.ReadLine();
+
+			} else {
+				// Error exit.
 				writeInputInterpretError ();
 				return;
 			}
 
-			fileServerIp = args [0];
-			filePath = args [1];
-
 			// Connect to the server using a TCP connection socket, and send a file request.
-			clientSocket.ReceiveBufferSize = BUFSIZE;  //FIX
-			clientSocket.SendBufferSize = BUFSIZE;
-
+			var stream = clientSocket.GetStream();
 			clientSocket.Connect (fileServerIp, PORT);
-			sendFileRequest (filePath, clientSocket.GetStream ());
-		}
-
-		/// <summary>
-		/// Sends a request for a specified file.
-		/// </summary>
-		/// <param name='fileName'>
-		/// File name.
-		/// </param>
-		/// <param name='io'>
-		/// Network stream for sending to the server
-		/// </param>
-		private void sendFileRequest (String filePath, NetworkStream stream)
-		{
-			// Client’en sender indledningsvis en tekststreng, som er indtastet af operatøren, til serveren.
-			// Tekststrengen skal indeholde et filnavn + en eventuel stiangivelse til en fil i serveren.
-			byte[] outStream = System.Text.Encoding.ASCII.GetBytes(filePath + "$");
-			stream.Write(outStream, 0, outStream.Length);
-			stream.Flush();
-
-			// Read answer from server.
-			receiveFile(filePath, stream);
+			LIB.writeTextTCP (stream, filePath);
+			receiveFile (LIB.extractFileName(filePath), stream);
 		}
 
 		private void writeInputInterpretError()
@@ -90,10 +80,13 @@ namespace tcp
 		private void receiveFile (String fileName, NetworkStream io)
 		{
 			// Client’en skal modtage den ønskede fil fejlfrit fra serveren – eller udskrive en fejlmelding hvis filen ikke findes i serveren.
-			byte[] inStream = new byte[BUFSIZE];
-			io.Read(inStream, 0, (int)clientSocket.ReceiveBufferSize);
-			string returndata = System.Text.Encoding.ASCII.GetString(inStream);
-			Console.WriteLine (returndata);
+			byte[] outBuffer = new byte[BUFSIZE];
+			int received;
+			FileStream fileStream = new FileStream (fileName, FileMode.CreateNew, FileAccess.ReadWrite);
+
+			// While received > 0.
+			while ((received = io.Read(outBuffer, 0, outBuffer.Length)) > 0)
+				fileStream.Write (outBuffer, 0, received);
 		}
 
 		/// <summary>
