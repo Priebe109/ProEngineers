@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DoorControl", "DoorControl\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DoorControl.Test.Unit", "DoorControl.Test.Unit\DoorControl.Test.Unit.csproj", "{D7BE489D-3F70-4212-8A07-3F8C3A9A9702}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DoorControl.Defaults", "DoorControl.Defaults\DoorControl.Defaults.csproj", "{687E3FD0-BBC7-47A7-8163-456C9E205480}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{D7BE489D-3F70-4212-8A07-3F8C3A9A9702}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D7BE489D-3F70-4212-8A07-3F8C3A9A9702}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D7BE489D-3F70-4212-8A07-3F8C3A9A9702}.Release|Any CPU.Build.0 = Release|Any CPU
+		{687E3FD0-BBC7-47A7-8163-456C9E205480}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{687E3FD0-BBC7-47A7-8163-456C9E205480}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{687E3FD0-BBC7-47A7-8163-456C9E205480}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{687E3FD0-BBC7-47A7-8163-456C9E205480}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

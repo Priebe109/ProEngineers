@@ -1,5 +1,4 @@
-﻿using DoorControl.Defaults;
-
+﻿
 namespace DoorControl
 {
     public class DoorControl: IDoorControl
@@ -22,16 +21,13 @@ namespace DoorControl
 
         public DoorControl()
         {
-            Door = new Door();
-            Validation = new UserValidation();
-            Notification = new EntryNotification();
             _busy = false;
         }
 
         public void RequestEntry(int id)
         {
             // Reject request if busy.
-            if (_busy) return;
+            if (_busy || Validation == null || Door == null || Notification == null) return;
 
             // Validate entry request.
             if (!Validation.ValidateEntryRequest(id)) return;
@@ -45,7 +41,7 @@ namespace DoorControl
         public void DoorOpened()
         {
             // Close the door again after a short delay.
-            Door.Close();
+            Door?.Close();
         }
 
         public void DoorClosed()
