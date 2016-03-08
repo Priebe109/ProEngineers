@@ -45,6 +45,7 @@ namespace tcp
 					// Receive bytes from client and convert to string.
 					requestCount += 1;
 					NetworkStream networkStream = clientSocket.GetStream();
+					/*
 					byte[] bytesFrom = new byte[BUFSIZE];	
 					networkStream.Read(bytesFrom, 0, (int)clientSocket.ReceiveBufferSize);
 					string dataFromClient = System.Text.Encoding.ASCII.GetString(bytesFrom);
@@ -57,6 +58,14 @@ namespace tcp
 					networkStream.Write(sendBytes, 0, sendBytes.Length);
 					networkStream.Flush();
 					Console.WriteLine(" >> " + serverResponse);
+					*/
+
+					//Reads text from networkStream with TCP. Checks if file exists and sends file.
+					string readText = LIB.readTextTCP (networkStream);
+					Console.WriteLine (" >> Data from client: " + readText);
+					long fileCheck = LIB.check_File_Exists (readText);
+
+					sendFile (readText, fileCheck, networkStream);
 				}
 				catch (Exception ex)
 				{
@@ -88,7 +97,28 @@ namespace tcp
 		/// </param>
 		private void sendFile (String fileName, long fileSize, NetworkStream io)
 		{
-			// TO DO Your own code
+			FileStream fileStream = new FileStream (fileName, FileMode.Open, FileAccess.Read);
+			int fileLength = (int)fileStream.Length;
+			int packetLength;
+			//Calculate total packet amount 
+			int packetCount = (int)Math.Ceiling ((double)fileLength / (double)BUFSIZE);
+
+			for (int i = 0; i < packetCount; i++) 
+			{
+				//Set current packetLength
+				if (fileLength > BUFSIZE) {
+					packetLength = BUFSIZE;		
+					fileLength -= packetLength;
+				} else {
+					packetLength = fileLength;
+				}
+				//Send packet
+				var outBuffer = new byte[packetLength];
+				fileStream.Read (outBuffer, 0, packetLength);
+				io.Write (outBuffer, 0, packetLength);
+				Console.WriteLine ("\rSent {1} out of {2} packets", i, packetCount);
+			}
+			
 		}
 
 		/// <summary>
