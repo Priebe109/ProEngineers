@@ -52,17 +52,17 @@ namespace DoorControl
 
         public void DoorOpened()
         {
-            // Close the door again.
-            Door?.Close();
-
             // Check if door was breached.
             if (State == DoorState.Closed)
             {
                 Alarm?.SignalAlarm();
                 State = DoorState.Breached;
+                Door?.Close();
                 return;
             }
 
+            // Close the door again
+            Door?.Close();
             State = DoorState.Open;
         }
 
