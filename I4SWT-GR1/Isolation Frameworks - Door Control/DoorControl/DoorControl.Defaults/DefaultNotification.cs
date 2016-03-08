@@ -8,5 +8,10 @@ namespace DoorControl.Defaults
         {
             Console.WriteLine("Entry granted!");
         }
+
+        public void NotifyEntryDenied()
+        {
+            Console.WriteLine("Entry denied!");
+        }
     }
 }

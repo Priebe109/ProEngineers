@@ -5,7 +5,8 @@ namespace DoorControl
     {
         Closed,
         Opening,
-        Open
+        Open,
+        Breached
     }
 
     public class DoorControl: IDoorControl
@@ -27,28 +28,42 @@ namespace DoorControl
 
         public DoorControl()
         {
+            // Initial state is closed.
             State = DoorState.Closed;
         }
 
         public void RequestEntry(int id)
         {
             // Reject request if another one is in progress (door is not closed).
-            if (State != DoorState.Closed || Validation == null || Door == null || Notification == null) return;
+            if (State != DoorState.Closed || Validation == null || Door == null) return;
 
-            // Validate entry request.
-            if (!Validation.ValidateEntryRequest(id)) return;
-            Door.Open();
-            Notification.NotifyEntryGranted();
+            // Validate failed.
+            if (!Validation.ValidateEntryRequest(id))
+            {
+                Notification?.NotifyEntryDenied();
+                return;
+            }
 
-            // Reject requests until door closes again.
+            // Validation succeeded.
             State = DoorState.Opening;
+            Door.Open();
+            Notification?.NotifyEntryGranted();
         }
 
         public void DoorOpened()
         {
             // Close the door again.
-            State = DoorState.Open;
             Door?.Close();
+
+            // Check if door was breached.
+            if (State == DoorState.Closed)
+            {
+                Alarm?.SignalAlarm();
+                State = DoorState.Breached;
+                return;
+            }
+
+            State = DoorState.Open;
         }
 
         public void DoorClosed()
