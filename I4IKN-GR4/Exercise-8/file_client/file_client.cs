@@ -54,23 +54,48 @@ namespace tcp
 				return;
 			}
 
-			// Connect to the server using a TCP connection socket, and send a file request.
+			connectToServer (fileServerIp, filePath);
+		}
+
+		/// <summary>
+		/// Connects to server and writes a request message. Handles the response from server.
+		/// </summary>
+		private void connectToServer(string ip, string filePath)
+		{
+			// Connect to the server using a TCP connection socket.
 			try {
-				clientSocket.Connect (fileServerIp, PORT);
+				clientSocket.Connect (ip, PORT);
 			} catch {
 				Console.WriteLine(" >> Could not connect to server");
 				return;
 			}
 
+			// Send a file request.
 			var stream = clientSocket.GetStream();
 			LIB.writeTextTCP (stream, filePath);
-			receiveFile (LIB.extractFileName(filePath), stream);
-			Console.WriteLine (" >> Recieved file");
+
+			// Receive message from server.
+			var message = LIB.readTextTCP(stream);
+
+			// Act on message from server.
+			switch (message) {
+			case "OK":
+				// File found on server
+				receiveFile (LIB.extractFileName(filePath), stream);
+				break;
+			case "NOT FOUND":
+				Console.WriteLine (" >>  File not found on server");
+				return;
+			default:
+				break;
+			}
 		}
 
+		/// <summary>
+		/// Print an error message to the console.
+		/// </summary>
 		private void writeInputInterpretError()
 		{
-			// Print an error message to the console.
 			Console.WriteLine (" >> Not able to interpret input. Use this form:");
 			Console.WriteLine (" >> #./file_client.exe <file_server’s ip-adr.> <[path] + filename>");
 		}
@@ -94,6 +119,8 @@ namespace tcp
 			// While received > 0.
 			while ((received = io.Read(outBuffer, 0, outBuffer.Length)) > 0)
 				fileStream.Write (outBuffer, 0, received);
+
+			Console.WriteLine (" >> Recieved file");
 		}
 
 		/// <summary>
