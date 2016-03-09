@@ -42,7 +42,7 @@ namespace tcp
 				filePath = args [1];
 
 			} else if (argsCount == 0) {
-				// Ask for args.
+				// Ask for args...
 				Console.WriteLine("Enter [server ip] followed by enter");
 				fileServerIp = Console.ReadLine();
 				Console.WriteLine("Enter [file path] followed by enter");

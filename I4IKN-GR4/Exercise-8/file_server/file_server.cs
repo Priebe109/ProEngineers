@@ -27,7 +27,7 @@ namespace tcp
 		/// </summary>
 		private file_server ()
 		{
-			// Opretter en socket.
+			// Opretter en socket...
 			TcpListener serverSocket = new TcpListener(PORT);
 			int requestCount = 0;
 			TcpClient clientSocket = default(TcpClient);
