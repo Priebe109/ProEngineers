@@ -27,7 +27,7 @@ namespace tcp
 		/// </summary>
 		private file_server ()
 		{
-			// Opretter en socket.
+			// Opretter en socket...
 			TcpListener serverSocket = new TcpListener(PORT);
 			int requestCount = 0;
 			TcpClient clientSocket = default(TcpClient);
@@ -51,8 +51,16 @@ namespace tcp
 					Console.WriteLine (" >> Data from client: " + readText);
 					long fileCheck = LIB.check_File_Exists (readText);
 
-					sendFile (readText, fileCheck, networkStream);
-
+					if (fileCheck == 0)
+					{
+						Console.WriteLine ("File not found");
+						LIB.writeTextTCP (networkStream, "NOT FOUND");
+					}
+					else
+					{
+						LIB.writeTextTCP (networkStream, "OK");
+						sendFile (readText, fileCheck, networkStream);
+					}
 					clientSocket.Close();
 					Console.WriteLine(" >> Closed client connection");
 				}
