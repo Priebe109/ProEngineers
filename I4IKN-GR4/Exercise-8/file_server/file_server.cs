@@ -38,7 +38,7 @@ namespace tcp
 			{
 				Console.WriteLine(" >> Server waiting for a client");
 				/// Venter på en connect fra en klient.
-				clientSocket = serverSocket.AcceptTcpClient();	//Crashes if filepath is wrong
+				clientSocket = serverSocket.AcceptTcpClient();
 				Console.WriteLine(" >> Accept connection from client");
 				try
 				{
