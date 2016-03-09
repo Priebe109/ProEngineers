@@ -32,7 +32,31 @@ namespace DoorControl.Test.Unit
             };
         }
 
+        // Constructor
+
+        [Test]
+        public void Ctor_InitialState_StateIsClosed()
+        {
+            Assert.That(_uut.State, Is.EqualTo(DoorState.Closed));
+        }
+
         // Request Entry
+
+        [Test]
+        public void RequestEntry_NoDoorConnected_StateRemainsClosed()
+        {
+            _userValidation.ValidateEntryRequest(Arg.Any<int>()).Returns(true);
+            _door = null;
+            Assert.That(_uut.State, Is.EqualTo(DoorState.Closed));
+        }
+
+        [Test]
+        public void RequestEntry_DeclinesValidationRequest_StateRemainsClosed()
+        {
+            _userValidation.ValidateEntryRequest(Arg.Any<int>()).Returns(false);
+            _uut.RequestEntry(FakeId);
+            Assert.That(_uut.State, Is.EqualTo(DoorState.Closed));
+        }
 
         [Test]
         public void RequestEntry_AcceptsValidationWithTwoImmediateRequests_NoExceptions()
@@ -42,10 +66,10 @@ namespace DoorControl.Test.Unit
             _uut.RequestEntry(FakeId);
         }
 
-        // RequestEntry - Door Interaction
+        // DoorControl - Door Interaction
 
         [Test]
-        public void RequestEntry_AcceptsValidation_CallDoorOpen()
+        public void DoorControl_AcceptsValidationRequest_CallDoorOpen()
         {
             _userValidation.ValidateEntryRequest(Arg.Any<int>()).Returns(true);
             _uut.RequestEntry(FakeId);
@@ -53,7 +77,15 @@ namespace DoorControl.Test.Unit
         }
 
         [Test]
-        public void RequestEntry_AcceptsValidation_CallDoorClose()
+        public void DoorControl_NoValidationConnected_DoorDidNotReceiveOpenCall()
+        {
+            _userValidation = null;
+            _uut.RequestEntry(FakeId);
+            _door.DidNotReceive().Open();
+        }
+
+        [Test]
+        public void DoorControl_AcceptsValidationRequest_CallDoorClose()
         {
             _userValidation.ValidateEntryRequest(Arg.Any<int>()).Returns(true);
             _uut.RequestEntry(FakeId);
@@ -61,31 +93,33 @@ namespace DoorControl.Test.Unit
         }
 
         [Test]
-        public void RequestEntry_DeclinesValidation_DoorDidNotReceiveOpenCall()
+        public void DoorControl_DeclinesValidationRequest_DoorDidNotReceiveOpenCall()
         {
             _userValidation.ValidateEntryRequest(Arg.Any<int>()).Returns(false);
             _uut.RequestEntry(FakeId);
-            Assert.Catch<Exception>(() =>
-            {
-                _door.Received().Open();
-            });
+            _door.DidNotReceive().Open();
         }
 
         [Test]
-        public void RequestEntry_DeclinesValidation_DoorDidNotReceiveCloseCall()
+        public void DoorControl_NoValidationConnected_DoorDidNotReceiveCloseCall()
+        {
+            _userValidation = null;
+            _uut.RequestEntry(FakeId);
+            _door.DidNotReceive().Close();
+        }
+
+        [Test]
+        public void DoorControl_DeclinesValidationRequest_DoorDidNotReceiveCloseCall()
         {
             _userValidation.ValidateEntryRequest(Arg.Any<int>()).Returns(false);
             _uut.RequestEntry(FakeId);
-            Assert.Catch<Exception>(() =>
-            {
-                _door.Received().Close();
-            });
+            _door.DidNotReceive().Close();
         }
 
-        // Request Entry - Notification Interaction
+        // DoorControl - Notification Interaction
 
         [Test]
-        public void RequestEntry_AcceptsValidation_CallNotifyEntryGranted()
+        public void DoorControl_AcceptsValidationRequest_CallNotifyEntryGranted()
         {
             _userValidation.ValidateEntryRequest(Arg.Any<int>()).Returns(true);
             _uut.RequestEntry(FakeId);
@@ -93,20 +127,28 @@ namespace DoorControl.Test.Unit
         }
 
         [Test]
-        public void RequestEntry_DeclinesValidation_CallNotifyEntryDenied()
+        public void DoorControl_DeclinesValidation_CallNotifyEntryDenied()
         {
             _userValidation.ValidateEntryRequest(Arg.Any<int>()).Returns(false);
             _uut.RequestEntry(FakeId);
             _entryNotification.Received().NotifyEntryDenied();
         }
 
-        //Door Breached
+        // DoorControl - Alarm Interaction
 
         [Test]
-        public void Open_WithoutRequestEntry_CallSignalAlarm()
+        public void DoorControl_DoorOpenedWithoutRequestEntry_CallSignalAlarm()
         {
             _door.Open();
             _alarm.Received().SignalAlarm();
+        }
+
+        [Test]
+        public void DoorControl_AcceptsValidationRequest_AlarmDidNotReceiveSignal()
+        {
+            _userValidation.ValidateEntryRequest(Arg.Any<int>()).Returns(true);
+            _uut.RequestEntry(FakeId);
+            _alarm.DidNotReceive().SignalAlarm();
         }
     }
 }
