@@ -42,10 +42,10 @@ namespace tcp
 				filePath = args [1];
 
 			} else if (argsCount == 0) {
-				// Ask for args...
-				Console.WriteLine("Enter [server ip] followed by enter");
+				// Ask for args.
+				Console.WriteLine(" >> Enter [server ip] followed by enter");
 				fileServerIp = Console.ReadLine();
-				Console.WriteLine("Enter [file path] followed by enter");
+				Console.WriteLine(" >> Enter [file path] followed by enter");
 				filePath = Console.ReadLine();
 
 			} else {
@@ -55,18 +55,24 @@ namespace tcp
 			}
 
 			// Connect to the server using a TCP connection socket, and send a file request.
-			clientSocket.Connect (fileServerIp, PORT);
+			try {
+				clientSocket.Connect (fileServerIp, PORT);
+			} catch {
+				Console.WriteLine(" >> Could not connect to server");
+				return;
+			}
+
 			var stream = clientSocket.GetStream();
 			LIB.writeTextTCP (stream, filePath);
 			receiveFile (LIB.extractFileName(filePath), stream);
-			Console.WriteLine ("Recieved file");
+			Console.WriteLine (" >> Recieved file");
 		}
 
 		private void writeInputInterpretError()
 		{
 			// Print an error message to the console.
-			Console.WriteLine ("Not able to interpret input. Use this form:");
-			Console.WriteLine ("#./file_client.exe <file_server’s ip-adr.> <[path] + filename>");
+			Console.WriteLine (" >> Not able to interpret input. Use this form:");
+			Console.WriteLine (" >> #./file_client.exe <file_server’s ip-adr.> <[path] + filename>");
 		}
 
 		/// <summary>
@@ -98,7 +104,7 @@ namespace tcp
 		/// </param>
 		public static void Main (string[] args)
 		{
-			Console.WriteLine ("Client starts...");
+			Console.WriteLine (" >> Client starts...");
 			new file_client(args);
 		}
 	}
