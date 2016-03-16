@@ -38,7 +38,6 @@ namespace udp
 			Console.WriteLine(Encoding.ASCII.GetString(receiveBuf, 0, receiveBuf.Length));
 
 			// Done
-			Console.WriteLine (">> " + argument + " send to server");
 			Console.ReadKey ();
 		}
 	}
