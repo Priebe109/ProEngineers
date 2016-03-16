@@ -14,33 +14,56 @@ namespace udp
 		private static void StartListener() 
 		{
 			UdpClient listener = new UdpClient(listenPort);
-			IPEndPoint groupEP = new IPEndPoint(IPAddress.Any,listenPort);
+			IPEndPoint groupEP = new IPEndPoint(IPAddress.Any, listenPort);
 
 			try 
 			{
 				while (true) 
 				{
-					Console.WriteLine("Waiting for broadcast");
+					Console.WriteLine(">> Waiting for broadcast");
 					byte[] bytes = listener.Receive( ref groupEP);
+					string request = Encoding.ASCII.GetString(bytes, 0, bytes.Length);
 
-					Console.WriteLine("Received broadcast from {0} :\n {1}\n",
+					Console.WriteLine(">> Received: {1} from: {0}",
 						groupEP.ToString(),
-						Encoding.ASCII.GetString(bytes,0,bytes.Length));
+						request);
 
+					// Interpret request from client and compose reply
 					byte[] data = new byte[1024];
-					switch (Encoding.ASCII.GetString(bytes,0,bytes.Length))
+					switch (request)
 					{
-						case "U": 
+						case "U":
 						case "u":
-							data = Encoding.ASCII.GetBytes("Message received(U), but I don't know the answer");
-							listener.Send(data, data.Length, groupEP);
+						{
+							// Read the file and store it in 'line'.
+							System.IO.StreamReader file = new System.IO.StreamReader("/proc/uptime");
+							string line = file.ReadLine ();
+							file.Close();
+
+							// Compose reply
+							data = Encoding.ASCII.GetBytes((string)("Server uptime: " + line));
 							break;
+						}
+						case "L":
+						case "l":
+						{
+							// Read the file and store it in 'line'.
+							System.IO.StreamReader file = new System.IO.StreamReader("/proc/loadavg");
+							string line = file.ReadLine ();
+							file.Close();
+
+							// Compose reply
+							data = Encoding.ASCII.GetBytes((string)("Server load average: " + line));
+							break;
+						}
 						default:
-							data = Encoding.ASCII.GetBytes("Message received(idk), but I don't know the answer");
-							listener.Send(data, data.Length, groupEP);
+							data = Encoding.ASCII.GetBytes("Invalid request received\nValid requests are either U or L");
 							break;
 					}
-
+					// Reply to request
+					listener.Send(data, data.Length, groupEP);
+					Console.WriteLine(">> Sent response to client: ");
+					Console.WriteLine(Encoding.ASCII.GetString(data, 0, data.Length) + "\n");
 				}
 
 			} 
