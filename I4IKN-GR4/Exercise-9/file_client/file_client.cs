@@ -24,11 +24,18 @@ namespace udp
 			// Setup client
 			IPAddress address = IPAddress.Parse ("10.0.0.1");
 			IPEndPoint endPoint = new IPEndPoint (address, serverPort);
-			client = new UdpClient(endPoint);
+			client = new UdpClient();
 
 			// Send
 			byte[] sendBuf = Encoding.ASCII.GetBytes(argument);
 			client.Send(sendBuf, sendBuf.Length ,endPoint);
+			Console.WriteLine (">> " + argument + " send to server");
+
+			// Receive
+			IPEndPoint groupEndPoint = new IPEndPoint(IPAddress.Any, serverPort);
+			byte[] receiveBuf = client.Receive (ref groupEndPoint);
+			Console.WriteLine (">> Response from server:");
+			Console.WriteLine(Encoding.ASCII.GetString(receiveBuf, 0, receiveBuf.Length));
 
 			// Done
 			Console.WriteLine (">> " + argument + " send to server");
