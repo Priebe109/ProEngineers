@@ -1,0 +1,50 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.24720.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "Adressekartotek_DDS-Lite", "Adressekartotek_DDS-Lite\Adressekartotek_DDS-Lite.sqlproj", "{ED9F5057-0E14-4053-8B57-3016B95FAEEE}"
+EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "Adressekartotek_SSDT", "Adressekartotek_SSDT\Adressekartotek_SSDT.sqlproj", "{E302B463-16E6-462F-90FF-98505E0A90D4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Adressekartotek_ConsoleApplication", "Adressekartotek_ConsoleApplication\Adressekartotek_ConsoleApplication.csproj", "{D804C2D0-E5F7-416B-B19D-CC88F20457FE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Adressekartotek_DAL", "Adressekartotek_DAL\Adressekartotek_DAL.csproj", "{B9DBD97B-8C89-4F8D-87FE-124C8F84F70F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Adressekartotek_API", "Adressekartotek_API\Adressekartotek_API.csproj", "{F26C25B3-C7DB-49B4-8DC2-58862E163B20}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{ED9F5057-0E14-4053-8B57-3016B95FAEEE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ED9F5057-0E14-4053-8B57-3016B95FAEEE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ED9F5057-0E14-4053-8B57-3016B95FAEEE}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{ED9F5057-0E14-4053-8B57-3016B95FAEEE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ED9F5057-0E14-4053-8B57-3016B95FAEEE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ED9F5057-0E14-4053-8B57-3016B95FAEEE}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{E302B463-16E6-462F-90FF-98505E0A90D4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E302B463-16E6-462F-90FF-98505E0A90D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E302B463-16E6-462F-90FF-98505E0A90D4}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{E302B463-16E6-462F-90FF-98505E0A90D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E302B463-16E6-462F-90FF-98505E0A90D4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E302B463-16E6-462F-90FF-98505E0A90D4}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{D804C2D0-E5F7-416B-B19D-CC88F20457FE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D804C2D0-E5F7-416B-B19D-CC88F20457FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D804C2D0-E5F7-416B-B19D-CC88F20457FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D804C2D0-E5F7-416B-B19D-CC88F20457FE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B9DBD97B-8C89-4F8D-87FE-124C8F84F70F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B9DBD97B-8C89-4F8D-87FE-124C8F84F70F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B9DBD97B-8C89-4F8D-87FE-124C8F84F70F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B9DBD97B-8C89-4F8D-87FE-124C8F84F70F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F26C25B3-C7DB-49B4-8DC2-58862E163B20}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F26C25B3-C7DB-49B4-8DC2-58862E163B20}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F26C25B3-C7DB-49B4-8DC2-58862E163B20}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F26C25B3-C7DB-49B4-8DC2-58862E163B20}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
