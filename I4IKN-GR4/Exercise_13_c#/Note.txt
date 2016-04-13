@@ -1,0 +1,22 @@
+IKN exercise 13
+
+Application-Layer
+	TCP-client/server fra Exercise 8. Applikationslaget skal foretager kald til applikationslaget.
+
+Transport-Layer
+	Transportlaget skal være pålideligt med en funktionalitet, som svarer til rdt v.2.2 i lærebog/slides.
+
+Network-Layer 
+	Skal ikke implementeres. Da der anvendes point-to-point kommunikation.
+	
+Link-Layer
+	Til dette lag skal I implementere en modificeret SLIP protokol. 
+	Protokollen skal implementeres således: 
+		Som start og stop karakter benyttes ’A’. Hvis karakteren ’A’ forekommer i telegrammet
+		erstattes det med de to tegn ’B’ og ’C’,
+		og hvis tegnet ’B’ forekommer, erstattes det med de to tegn ’B’ og ’D’.
+		
+
+Physical-Layer
+	RS232 (/dev/ttyS1)
+	
