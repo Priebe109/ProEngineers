@@ -82,45 +82,6 @@
             </relationshipOwnedElementsInternal>
           </association>
           <association
-            Id="8e9031f1-ed22-47e1-a186-256986093c06"
-            isDerived="false"
-            sourceEndRoleName="ATM"
-            targetEndRoleName="TransponderDataParser"
-            isLeaf="false"
-            isAbstract="false">
-            <classMoniker
-              Id="456e0a42-f619-487e-bc35-3cabe658ce36"
-              LastKnownName="TransponderDataParser"
-              LastKnownLocation="ATM16101.Modelling.uml" />
-            <relationshipOwnedElementsInternal>
-              <associationHasOwnedEnds>
-                <memberEnd
-                  Id="3afddebf-75d8-4f90-93d9-6de1d213de88"
-                  name="ATM"
-                  isLeaf="false"
-                  isStatic="false"
-                  isReadOnly="false"
-                  isDerived="false"
-                  isDerivedUnion="false"
-                  aggregation="None"
-                  isComposite="false"
-                  isNavigableOwned="false" />
-              </associationHasOwnedEnds>
-              <associationHasOwnedEnds>
-                <memberEnd
-                  Id="808e4bb7-e450-4b09-a309-d040fa347708"
-                  name="TransponderDataParser"
-                  isLeaf="false"
-                  isStatic="false"
-                  isReadOnly="false"
-                  isDerived="false"
-                  isDerivedUnion="false"
-                  aggregation="None"
-                  isComposite="false" />
-              </associationHasOwnedEnds>
-            </relationshipOwnedElementsInternal>
-          </association>
-          <association
             Id="b6c100f7-0137-4895-a4b1-848e5aad20fc"
             isDerived="false"
             sourceEndRoleName="ATM"
@@ -289,6 +250,45 @@
               </associationHasOwnedEnds>
             </relationshipOwnedElementsInternal>
           </association>
+          <association
+            Id="ad167f05-0f6b-4b24-8a77-db4e7e69d9ff"
+            isDerived="false"
+            sourceEndRoleName="ATM"
+            targetEndRoleName="ITransponderDataParser"
+            isLeaf="false"
+            isAbstract="false">
+            <interfaceMoniker
+              Id="71d7e191-6dcb-4a56-83f4-42b5e3e6151d"
+              LastKnownName="ITransponderDataParser"
+              LastKnownLocation="ATM16101.Modelling.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="739fdfce-eb22-4559-96fc-e3044951851f"
+                  name="ATM"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="904f8198-75a3-4e36-bccf-6e2bcd939cf4"
+                  name="ITransponderDataParser"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
         </targetEnds>
       </class>
     </packageHasNamedElement>
@@ -325,6 +325,13 @@
         isLeaf="false"
         isActiveClass="false">
         <suppliersInternal>
+          <interfaceRealization
+            Id="d9731ad8-a36f-4c32-a53b-0753ac9aede3">
+            <interfaceMoniker
+              Id="71d7e191-6dcb-4a56-83f4-42b5e3e6151d"
+              LastKnownName="ITransponderDataParser"
+              LastKnownLocation="ATM16101.Modelling.uml" />
+          </interfaceRealization>
           <dependency
             Id="6f585006-2670-43eb-9f98-f739b6866f2e">
             <classMoniker
@@ -347,6 +354,13 @@
       <Interface
         Id="d880b94b-263a-4332-9d0b-ee33afcbf5ac"
         name="ITransponderReciever"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <Interface
+        Id="71d7e191-6dcb-4a56-83f4-42b5e3e6151d"
+        name="ITransponderDataParser"
         isAbstract="false"
         isLeaf="false" />
     </packageHasNamedElement>
