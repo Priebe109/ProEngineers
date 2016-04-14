@@ -1,0 +1,182 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<logicalClassDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" dslVersion="1.0.0.0" Id="88f2beef-9dbe-4729-bc48-4e1ce414dfef" name="ATM16101" linkedPackageId="ea0a4c4a-dcb0-4611-bd53-8a781f8dd0a1" xmlns="http://schemas.microsoft.com/dsltools/LogicalClassDesigner">
+  <packagedElements>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="359960b4-dc30-4f22-993e-7517ea333294" name="Airspace" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="0115c4c9-d7bd-441f-9b37-883b69494e03" />
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="d3fc814f-91ef-4bbd-9054-25a2a7a2ede8" name="Track" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="b4dcd554-0b49-40d5-afee-a80f9145765d" />
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="9169ea4b-50cf-45ed-943a-086b7122bb25" name="ATM" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="92602f78-bf5c-4359-b97e-0831a586c463" />
+        <targetEnds>
+          <association Id="9bf8bb58-25b1-419d-bee8-0daf259cf758" isDerived="false" sourceEndRoleName="ATM" targetEndRoleName="IDisplay" isLeaf="false" isAbstract="false">
+            <interfaceMoniker Id="5843c930-3104-4559-92bf-d23a04d3eb9c" LastKnownName="IDisplay" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="b3ddedbb-fa2b-49f7-9be3-e6f2eb39448d" name="ATM" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="8626e87c-f7a1-412b-b2a0-859a08f98a5d" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="9fcf954e-e6ef-41f3-8f67-e2bce1ce9803" name="IDisplay" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="4dcb5c42-0103-4bc9-86b7-b8d5d37329e7" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="746b3e39-a3c5-4b13-90d5-a949f1c144b5" />
+          </association>
+          <association Id="324fe34c-0c35-423e-bfb9-f30523dc4b4f" isDerived="false" sourceEndRoleName="ATM" targetEndRoleName="TransponderDataParser" isLeaf="false" isAbstract="false">
+            <classMoniker Id="9cbd2f3c-b2f1-424c-8992-34ecf916eae8" LastKnownName="TransponderDataParser" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="0d03ba94-f2f3-41af-8400-ca07c1a7ea4a" name="ATM" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="3afddebf-75d8-4f90-93d9-6de1d213de88" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="baa20255-19d0-435d-8228-185b0425d495" name="TransponderDataParser" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="808e4bb7-e450-4b09-a309-d040fa347708" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="8e9031f1-ed22-47e1-a186-256986093c06" />
+          </association>
+          <association Id="735fd8a2-9ad2-4fd6-a193-9db63404e452" isDerived="false" sourceEndRoleName="ATM" targetEndRoleName="Airspace" isLeaf="false" isAbstract="false">
+            <classMoniker Id="359960b4-dc30-4f22-993e-7517ea333294" LastKnownName="Airspace" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="a8cfa536-a6c0-4061-9271-845150952228" name="ATM" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="80b27799-7cda-4be5-95a2-496628ee67fa" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="f7f416ec-7f82-4554-8df8-38b3e9dbe9f6" name="Airspace" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="7d81f05f-0978-4811-82e4-3469b251d285" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="b6c100f7-0137-4895-a4b1-848e5aad20fc" />
+          </association>
+          <association Id="ee6c4ad6-5e5c-4699-9313-d0b9f4923fa4" isDerived="false" sourceEndRoleName="ATM" targetEndRoleName="Track" isLeaf="false" isAbstract="false">
+            <classMoniker Id="d3fc814f-91ef-4bbd-9054-25a2a7a2ede8" LastKnownName="Track" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="44cd7a93-fe23-42a3-a5e9-360a5040de28" name="ATM" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="61db009d-8308-4ed9-8a91-6ccb2df806fd" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="d96a4ab1-9bd2-4294-be11-b1b42f7e76d7" name="Track" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <lowerValueInternal>
+                    <literalString Id="1990008d-6d0f-4469-b71f-804addfb721e" name="Lower" value="*">
+                      <elementDefinition Id="828b7aaf-5174-44fc-bd12-6d8e951345bb" />
+                    </literalString>
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString Id="9234ee5f-c311-441d-a24a-821db962ec85" name="Upper" value="*">
+                      <elementDefinition Id="173ddebe-cf4a-44ef-8f3d-eaad5a616b48" />
+                    </literalString>
+                  </upperValueInternal>
+                  <elementDefinition Id="3a04dfdf-7487-40ba-a554-9f4ccc6d2051" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="53bdc7a9-e045-4c1a-945b-6536867e5bb9" />
+          </association>
+          <association Id="1bc7f62a-20e0-4a79-8073-36ff3ffda461" isDerived="false" sourceEndRoleName="ATM" targetEndRoleName="ITransponderReciever" isLeaf="false" isAbstract="false">
+            <interfaceMoniker Id="f044bb4e-589c-494f-97fc-d51c2f02394e" LastKnownName="ITransponderReciever" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="33ec64f4-0962-4278-9cf0-ec85d6f18f47" name="ATM" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="58bc71b8-e521-4b11-92e9-5e64a1e899b2" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="56a76b0d-1f08-43df-a20d-97fff05ee01a" name="ITransponderReciever" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="ec60ab90-dd22-4326-ba43-c090da8f1d1b" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="ea5d8bbb-83bb-4d9a-b1ff-7ec5c3277d93" />
+          </association>
+          <association Id="093538dd-4dfb-4dd1-9769-15f3237c1927" isDerived="false" sourceEndRoleName="ATM" targetEndRoleName="EventDetector" isLeaf="false" isAbstract="false">
+            <classMoniker Id="74a88fd0-f432-4478-87fb-e5fe7a5805d1" LastKnownName="EventDetector" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="6197ef83-f6f0-45ff-b7ca-bbb453f21b79" name="ATM" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="1d566f9d-337d-47a0-a2d7-3264835862b8" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="8c163bac-8128-4619-96f6-07d7c7836a3a" name="EventDetector" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="51766a38-7aaf-4a64-8112-798b4836ea12" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="39f6edbb-9490-47c2-83b8-ce2717bb805a" />
+          </association>
+        </targetEnds>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="f1075c0d-88c7-4137-8030-1b8ff6cefaf1" name="ConsoleDisplay" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="bf3f2e95-1500-4d25-b948-6e8608b19dc5" />
+        <suppliersInternal>
+          <interfaceRealization Id="ac4cca70-b082-4b34-a80f-1ff7e50b0eca">
+            <interfaceMoniker Id="5843c930-3104-4559-92bf-d23a04d3eb9c" LastKnownName="IDisplay" />
+            <elementDefinition Id="0e6a9f20-8ecb-4147-8d59-8f4f463019c2" />
+          </interfaceRealization>
+        </suppliersInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <Interface Id="5843c930-3104-4559-92bf-d23a04d3eb9c" name="IDisplay" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="3722b702-b210-4e5d-89fa-2235428870a3" />
+      </Interface>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="9cbd2f3c-b2f1-424c-8992-34ecf916eae8" name="TransponderDataParser" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="456e0a42-f619-487e-bc35-3cabe658ce36" />
+        <suppliersInternal>
+          <dependency Id="28656091-3cfb-4c0e-b5cf-2ee48e5d9778">
+            <classMoniker Id="d3fc814f-91ef-4bbd-9054-25a2a7a2ede8" LastKnownName="Track" />
+            <elementDefinition Id="6f585006-2670-43eb-9f98-f739b6866f2e" />
+          </dependency>
+        </suppliersInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="74a88fd0-f432-4478-87fb-e5fe7a5805d1" name="EventDetector" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="29d480bc-866a-49e0-8cde-f3eb9f061bdd" />
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <Interface Id="f044bb4e-589c-494f-97fc-d51c2f02394e" name="ITransponderReciever" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="d880b94b-263a-4332-9d0b-ee33afcbf5ac" />
+      </Interface>
+    </logicalClassDesignerModelHasTypes>
+  </packagedElements>
+  <package Id="ea0a4c4a-dcb0-4611-bd53-8a781f8dd0a1" name="ATM16101.Modelling">
+    <elementDefinition Id="f12301f4-fe33-43d5-ab19-ed4fe9f6f092" />
+    <profileInstances>
+      <packageHasProfileInstances Id="d19cdb1d-dde9-4b97-ae97-d6b8fd11ca63">
+        <profileInstance Id="b5d8df2f-9e00-47a1-addd-62c3346f4210" name="StandardProfileL2">
+          <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+        </profileInstance>
+        <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+      </packageHasProfileInstances>
+      <packageHasProfileInstances Id="ecdb303e-9668-4d01-af48-ebc3be075f40">
+        <profileInstance Id="e7e6a53b-42df-45b2-b76d-d76fcc59b275" name="StandardProfileL3">
+          <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+        </profileInstance>
+        <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+      </packageHasProfileInstances>
+    </profileInstances>
+  </package>
+</logicalClassDesignerModel>

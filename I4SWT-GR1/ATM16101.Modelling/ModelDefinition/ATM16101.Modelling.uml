@@ -1,0 +1,374 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<modelStoreModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
+  dslVersion="1.0.0.0"
+  Id="f12301f4-fe33-43d5-ab19-ed4fe9f6f092"
+  name="ATM16101.Modelling" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
+  <profileInstances>
+    <packageHasProfileInstances
+      Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b">
+      <profileInstance
+        Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791"
+        name="StandardProfileL2" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances
+      Id="29349502-908c-4fda-9054-c48619c59ed0">
+      <profileInstance
+        Id="532ea607-fb19-44b8-8502-3351b05452be"
+        name="StandardProfileL3" />
+    </packageHasProfileInstances>
+  </profileInstances>
+  <packagedElements>
+    <packageHasNamedElement>
+      <class
+        Id="0115c4c9-d7bd-441f-9b37-883b69494e03"
+        name="Airspace"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="b4dcd554-0b49-40d5-afee-a80f9145765d"
+        name="Track"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="92602f78-bf5c-4359-b97e-0831a586c463"
+        name="ATM"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <targetEnds>
+          <association
+            Id="746b3e39-a3c5-4b13-90d5-a949f1c144b5"
+            isDerived="false"
+            sourceEndRoleName="ATM"
+            targetEndRoleName="IDisplay"
+            isLeaf="false"
+            isAbstract="false">
+            <interfaceMoniker
+              Id="3722b702-b210-4e5d-89fa-2235428870a3"
+              LastKnownName="IDisplay"
+              LastKnownLocation="ATM16101.Modelling.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="8626e87c-f7a1-412b-b2a0-859a08f98a5d"
+                  name="ATM"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="4dcb5c42-0103-4bc9-86b7-b8d5d37329e7"
+                  name="IDisplay"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="8e9031f1-ed22-47e1-a186-256986093c06"
+            isDerived="false"
+            sourceEndRoleName="ATM"
+            targetEndRoleName="TransponderDataParser"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="456e0a42-f619-487e-bc35-3cabe658ce36"
+              LastKnownName="TransponderDataParser"
+              LastKnownLocation="ATM16101.Modelling.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="3afddebf-75d8-4f90-93d9-6de1d213de88"
+                  name="ATM"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="808e4bb7-e450-4b09-a309-d040fa347708"
+                  name="TransponderDataParser"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="b6c100f7-0137-4895-a4b1-848e5aad20fc"
+            isDerived="false"
+            sourceEndRoleName="ATM"
+            targetEndRoleName="Airspace"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="0115c4c9-d7bd-441f-9b37-883b69494e03"
+              LastKnownName="Airspace"
+              LastKnownLocation="ATM16101.Modelling.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="80b27799-7cda-4be5-95a2-496628ee67fa"
+                  name="ATM"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="7d81f05f-0978-4811-82e4-3469b251d285"
+                  name="Airspace"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="53bdc7a9-e045-4c1a-945b-6536867e5bb9"
+            isDerived="false"
+            sourceEndRoleName="ATM"
+            targetEndRoleName="Track"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="b4dcd554-0b49-40d5-afee-a80f9145765d"
+              LastKnownName="Track"
+              LastKnownLocation="ATM16101.Modelling.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="61db009d-8308-4ed9-8a91-6ccb2df806fd"
+                  name="ATM"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="3a04dfdf-7487-40ba-a554-9f4ccc6d2051"
+                  name="Track"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="828b7aaf-5174-44fc-bd12-6d8e951345bb"
+                      name="Lower"
+                      value="*" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="173ddebe-cf4a-44ef-8f3d-eaad5a616b48"
+                      name="Upper"
+                      value="*" />
+                  </upperValueInternal>
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="ea5d8bbb-83bb-4d9a-b1ff-7ec5c3277d93"
+            isDerived="false"
+            sourceEndRoleName="ATM"
+            targetEndRoleName="ITransponderReciever"
+            isLeaf="false"
+            isAbstract="false">
+            <interfaceMoniker
+              Id="d880b94b-263a-4332-9d0b-ee33afcbf5ac"
+              LastKnownName="ITransponderReciever"
+              LastKnownLocation="ATM16101.Modelling.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="58bc71b8-e521-4b11-92e9-5e64a1e899b2"
+                  name="ATM"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="ec60ab90-dd22-4326-ba43-c090da8f1d1b"
+                  name="ITransponderReciever"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="39f6edbb-9490-47c2-83b8-ce2717bb805a"
+            isDerived="false"
+            sourceEndRoleName="ATM"
+            targetEndRoleName="EventDetector"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="29d480bc-866a-49e0-8cde-f3eb9f061bdd"
+              LastKnownName="EventDetector"
+              LastKnownLocation="ATM16101.Modelling.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="1d566f9d-337d-47a0-a2d7-3264835862b8"
+                  name="ATM"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="51766a38-7aaf-4a64-8112-798b4836ea12"
+                  name="EventDetector"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="bf3f2e95-1500-4d25-b948-6e8608b19dc5"
+        name="ConsoleDisplay"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <suppliersInternal>
+          <interfaceRealization
+            Id="0e6a9f20-8ecb-4147-8d59-8f4f463019c2">
+            <interfaceMoniker
+              Id="3722b702-b210-4e5d-89fa-2235428870a3"
+              LastKnownName="IDisplay"
+              LastKnownLocation="ATM16101.Modelling.uml" />
+          </interfaceRealization>
+        </suppliersInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <Interface
+        Id="3722b702-b210-4e5d-89fa-2235428870a3"
+        name="IDisplay"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="456e0a42-f619-487e-bc35-3cabe658ce36"
+        name="TransponderDataParser"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <suppliersInternal>
+          <dependency
+            Id="6f585006-2670-43eb-9f98-f739b6866f2e">
+            <classMoniker
+              Id="b4dcd554-0b49-40d5-afee-a80f9145765d"
+              LastKnownName="Track"
+              LastKnownLocation="ATM16101.Modelling.uml" />
+          </dependency>
+        </suppliersInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="29d480bc-866a-49e0-8cde-f3eb9f061bdd"
+        name="EventDetector"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <Interface
+        Id="d880b94b-263a-4332-9d0b-ee33afcbf5ac"
+        name="ITransponderReciever"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+  </packagedElements>
+  <primitiveType
+    Id="220a3521-e091-4221-bae9-3ef9018e845c"
+    name="Integer"
+    isAbstract="false"
+    isLeaf="false" />
+  <primitiveType
+    Id="8943dc84-709e-4f62-b15a-a3273aa6f165"
+    name="Boolean"
+    isAbstract="false"
+    isLeaf="false" />
+  <primitiveType
+    Id="59259974-6d55-42c6-b7bd-763d77ac8ef9"
+    name="String"
+    isAbstract="false"
+    isLeaf="false" />
+  <primitiveType
+    Id="3ab42e7d-4969-445a-b209-471f5cb8209c"
+    name="UnlimitedNatural"
+    isAbstract="false"
+    isLeaf="false" />
+</modelStoreModel>
