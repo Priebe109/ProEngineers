@@ -89,22 +89,6 @@
             </relationshipOwnedElementsInternal>
             <elementDefinition Id="ea5d8bbb-83bb-4d9a-b1ff-7ec5c3277d93" />
           </association>
-          <association Id="093538dd-4dfb-4dd1-9769-15f3237c1927" isDerived="false" sourceEndRoleName="ATM" targetEndRoleName="EventDetector" isLeaf="false" isAbstract="false">
-            <classMoniker Id="74a88fd0-f432-4478-87fb-e5fe7a5805d1" LastKnownName="EventDetector" />
-            <relationshipOwnedElementsInternal>
-              <associationHasOwnedEnds>
-                <memberEnd Id="6197ef83-f6f0-45ff-b7ca-bbb453f21b79" name="ATM" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
-                  <elementDefinition Id="1d566f9d-337d-47a0-a2d7-3264835862b8" />
-                </memberEnd>
-              </associationHasOwnedEnds>
-              <associationHasOwnedEnds>
-                <memberEnd Id="8c163bac-8128-4619-96f6-07d7c7836a3a" name="EventDetector" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
-                  <elementDefinition Id="51766a38-7aaf-4a64-8112-798b4836ea12" />
-                </memberEnd>
-              </associationHasOwnedEnds>
-            </relationshipOwnedElementsInternal>
-            <elementDefinition Id="39f6edbb-9490-47c2-83b8-ce2717bb805a" />
-          </association>
           <association Id="19281c1c-dd0d-4b9b-83d1-41777630f1c0" isDerived="false" sourceEndRoleName="ATM" targetEndRoleName="ITransponderDataParser" isLeaf="false" isAbstract="false">
             <interfaceMoniker Id="06564cc0-9232-4a27-be95-f6cf794daab8" LastKnownName="ITransponderDataParser" />
             <relationshipOwnedElementsInternal>
@@ -121,11 +105,27 @@
             </relationshipOwnedElementsInternal>
             <elementDefinition Id="ad167f05-0f6b-4b24-8a77-db4e7e69d9ff" />
           </association>
+          <association Id="59b07556-3d89-4c40-8584-8e8e9571f50e" isDerived="false" sourceEndRoleName="ATM" targetEndRoleName="IEventDetector" isLeaf="false" isAbstract="false">
+            <interfaceMoniker Id="69a2fcd6-02f3-4cbc-b836-63ff34c2164a" LastKnownName="IEventDetector" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="e80282c6-1395-43d8-ba44-152b44e3f224" name="ATM" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="2b441986-1b1c-49cc-800d-1017bd865dda" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="f2c7f3b4-043e-4194-9011-08bba9d51637" name="IEventDetector" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="5b5dbaa9-2bde-4f32-b553-1ec688ae8031" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="534e10ce-0388-4287-8f4f-79547fe1deeb" />
+          </association>
         </targetEnds>
       </class>
     </logicalClassDesignerModelHasTypes>
     <logicalClassDesignerModelHasTypes>
-      <class Id="f1075c0d-88c7-4137-8030-1b8ff6cefaf1" name="ConsoleDisplay" isAbstract="false" isLeaf="false" isActiveClass="false">
+      <class Id="f1075c0d-88c7-4137-8030-1b8ff6cefaf1" name="WPFDisplay" isAbstract="false" isLeaf="false" isActiveClass="false">
         <elementDefinition Id="bf3f2e95-1500-4d25-b948-6e8608b19dc5" />
         <suppliersInternal>
           <interfaceRealization Id="ac4cca70-b082-4b34-a80f-1ff7e50b0eca">
@@ -158,6 +158,62 @@
     <logicalClassDesignerModelHasTypes>
       <class Id="74a88fd0-f432-4478-87fb-e5fe7a5805d1" name="EventDetector" isAbstract="false" isLeaf="false" isActiveClass="false">
         <elementDefinition Id="29d480bc-866a-49e0-8cde-f3eb9f061bdd" />
+        <suppliersInternal>
+          <interfaceRealization Id="66478df8-f156-458a-9f0f-c15dc5d73fe9">
+            <interfaceMoniker Id="69a2fcd6-02f3-4cbc-b836-63ff34c2164a" LastKnownName="IEventDetector" />
+            <elementDefinition Id="f9088ed0-36fe-4ea2-8e99-eed4ebc958e7" />
+          </interfaceRealization>
+        </suppliersInternal>
+        <targetEnds>
+          <association Id="036dafca-459a-4430-8c94-e0dae022de42" isDerived="false" sourceEndRoleName="EventDetector" targetEndRoleName="IEventLogger" isLeaf="false" isAbstract="false">
+            <interfaceMoniker Id="5ce2037e-3d8e-4696-8f44-a90d5fca256d" LastKnownName="IEventLogger" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="56b941ed-a67a-41c3-9f34-fdd9e3e6fbb1" name="EventDetector" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="8f46cf4a-444c-4c13-928c-1a8bacbae244" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="ef746b74-ee30-4ab9-916a-0614f4f04433" name="IEventLogger" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="f37725d8-27ff-4e52-a49c-ebde51423cd7" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="ad386f9c-3aaa-496d-a8c8-1a05ff613a57" />
+          </association>
+          <association Id="85cfbabd-4256-4a7f-9e40-695b94fc4be9" isDerived="false" sourceEndRoleName="EventDetector" targetEndRoleName="EventTimer" isLeaf="false" isAbstract="false">
+            <classMoniker Id="233abc14-fc09-4fd3-8bc5-339093e7b177" LastKnownName="EventTimer" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="66aba06f-1e10-485f-ae44-796f6a92c6d2" name="EventDetector" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="ac320266-f7af-45d6-8027-b565ad8685c7" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="979b0ff2-24ec-4274-aee4-a7cd7c1fdf66" name="EventTimer" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="c84d9db5-264d-4c70-81f0-d9fd180c1e4c" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="da743129-34db-44cf-83e9-246b45866e25" />
+          </association>
+          <association Id="42a20bc4-2607-4fc3-baf4-419732678aed" isDerived="false" sourceEndRoleName="EventDetector" targetEndRoleName="TrackEvent" isLeaf="false" isAbstract="false">
+            <classMoniker Id="7480d50c-0a39-4ab4-957c-37f32f8ec055" LastKnownName="TrackEvent" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="c4dbad5c-f617-4a99-a4e0-70bd194ae3ba" name="EventDetector" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="965a7b3c-0795-4db7-a549-2ce5c98da59b" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="ed5702a2-5a43-453a-b2a0-d9c9b84de901" name="TrackEvent" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="a2fbef88-1741-4320-94fb-80762567fddc" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="9d10c47a-051a-40b2-9cf0-9ee99d0c7875" />
+          </association>
+        </targetEnds>
       </class>
     </logicalClassDesignerModelHasTypes>
     <logicalClassDesignerModelHasTypes>
@@ -169,6 +225,89 @@
       <Interface Id="06564cc0-9232-4a27-be95-f6cf794daab8" name="ITransponderDataParser" isAbstract="false" isLeaf="false">
         <elementDefinition Id="71d7e191-6dcb-4a56-83f4-42b5e3e6151d" />
       </Interface>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <Interface Id="69a2fcd6-02f3-4cbc-b836-63ff34c2164a" name="IEventDetector" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="da5c5019-27f8-468d-9087-ba8180fd104a" />
+      </Interface>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <Interface Id="5ce2037e-3d8e-4696-8f44-a90d5fca256d" name="IEventLogger" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="b649f551-5352-4cc5-835b-218eb1812bde" />
+      </Interface>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="a6d452dc-3459-48ca-9620-efba88f2e183" name="EventLogger" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="351158bd-ad50-4afe-aea5-7de1813d1a16" />
+        <suppliersInternal>
+          <interfaceRealization Id="4da1a2bb-8411-468a-b22d-68c62bf614af">
+            <interfaceMoniker Id="5ce2037e-3d8e-4696-8f44-a90d5fca256d" LastKnownName="IEventLogger" />
+            <elementDefinition Id="13276869-2474-4fb3-9d33-a120f63f7fab" />
+          </interfaceRealization>
+        </suppliersInternal>
+        <targetEnds>
+          <association Id="ca3f7d7b-7c95-4972-82df-35b985d65b51" isDerived="false" sourceEndRoleName="EventLogger" targetEndRoleName="TrackEvent" isLeaf="false" isAbstract="false">
+            <classMoniker Id="7480d50c-0a39-4ab4-957c-37f32f8ec055" LastKnownName="TrackEvent" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="cf17d0a7-88b5-4e67-8c88-b64b43b96edc" name="EventLogger" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="07b6f0d6-48fe-406b-b1b9-512adf5c020e" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="f3ab15dd-d189-42a4-976a-e7cf105b92df" name="TrackEvent" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="9df3fb58-95d6-4b1e-8df6-9e3392c848c6" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="7c0d2c1d-679c-4a3e-93e6-ce942583ad72" />
+          </association>
+        </targetEnds>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="233abc14-fc09-4fd3-8bc5-339093e7b177" name="EventTimer" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="2597b420-4ef4-487a-b297-9ba5e1632d91" />
+        <targetEnds>
+          <association Id="813cd2ed-a39f-4571-a077-0390cb4c132b" isDerived="false" sourceEndRoleName="EventTimer" targetEndRoleName="IDisplay" isLeaf="false" isAbstract="false">
+            <interfaceMoniker Id="5843c930-3104-4559-92bf-d23a04d3eb9c" LastKnownName="IDisplay" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="91225b7a-bc6a-4671-8d9e-33575397b762" name="EventTimer" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="ce1d8f83-55d5-485e-a992-b4eca35be749" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="356d8ac1-0a5b-45df-8a3d-755b35c428ef" name="IDisplay" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="1b1e661b-9b7a-4743-9e2c-6902dc57bbc1" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="ffb05e5f-111d-497d-826a-108a9002b3f7" />
+          </association>
+          <association Id="b881b962-895e-48f9-b23c-acbee3b963a2" isDerived="false" sourceEndRoleName="EventTimer" targetEndRoleName="TrackEvent" isLeaf="false" isAbstract="false">
+            <classMoniker Id="7480d50c-0a39-4ab4-957c-37f32f8ec055" LastKnownName="TrackEvent" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="fd01e500-e810-4bb8-9336-cfa527203461" name="EventTimer" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="d5db8eec-6ca4-4135-913a-cf89ebd19cd0" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="ef2243f1-64dc-455c-8cd1-6293830b350c" name="TrackEvent" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="19a48a2b-072a-4d88-84f3-50495ad6b620" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="6ec77584-6db3-4285-969e-db8d9ed31fef" />
+          </association>
+        </targetEnds>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="7480d50c-0a39-4ab4-957c-37f32f8ec055" name="TrackEvent" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="eaac46c2-9a7e-4d52-ba24-84d8e2496ae3" />
+      </class>
     </logicalClassDesignerModelHasTypes>
   </packagedElements>
   <package Id="ea0a4c4a-dcb0-4611-bd53-8a781f8dd0a1" name="ATM16101.Modelling">
