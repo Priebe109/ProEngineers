@@ -69,5 +69,29 @@ namespace Linklaget
 		{
 	    	// TO DO Your own code
 		}
+
+	    byte[] _returnArray;
+
+
+        public Tuple<byte[], int> Slip(byte[] buf, int size)
+	    {
+	        _returnArray = new byte[2008];
+            _returnArray[0] = (byte)'A';
+            int pointerToLastconversion=0, i, returnArrayPointer=1;
+
+            for (i = 0; i < size; i++)
+            {
+                if (buf[i] == 'A')
+                { 
+                    Array.Copy(buf,pointerToLastconversion,_returnArray,returnArrayPointer,((i-pointerToLastconversion)-1));
+                    returnArrayPointer += ((i - pointerToLastconversion));
+                    pointerToLastconversion = i+1;
+                    _returnArray[returnArrayPointer] = (byte)'B';
+                    _returnArray[returnArrayPointer+1] = (byte)'C';
+                    returnArrayPointer =+ 2;
+                }
+
+            }
+	    }
 	}
 }
