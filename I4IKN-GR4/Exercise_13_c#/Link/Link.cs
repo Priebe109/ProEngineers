@@ -67,10 +67,12 @@ namespace Linklaget
 		/// </param>
 		public int receive (ref byte[] buf)
 		{
-	    	// TO DO Your own code
+			var deslippedInfo = Deslip(buf);
+			buf = deslippedInfo.Item1;
+			return deslippedInfo.Item2;
 		}
 
-		public Tuple<byte[], int> Deslip(ref byte[] buffer)
+		public Tuple<byte[], int> Deslip(byte[] buffer)
 		{
 			var deslippedBuffer = new byte[2008];
 			var deslippedBufferIndex = 0;
