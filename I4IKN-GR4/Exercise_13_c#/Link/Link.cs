@@ -69,5 +69,39 @@ namespace Linklaget
 		{
 	    	// TO DO Your own code
 		}
+
+		public Tuple<byte[], int> Deslip(ref byte[] buffer)
+		{
+			var deslippedBuffer = new byte[2008];
+			var deslippedBufferIndex = 0;
+			var delimitersEncountered = 0;
+
+			for (int i = 0; i < buffer.Length && delimitersEncountered < 2; i++) {
+
+				// if delimiter is encountered, register and continue
+				if (buffer [i] == DELIMITER)
+					delimitersEncountered++;
+				
+				// if the substitute character is encountered, check the case and continue
+				else if (i < (buffer.Length - 1) && buffer [i] == (byte)'B') {
+					switch (buffer [i]) {
+					default:
+					case (byte)'C':
+						deslippedBuffer [deslippedBufferIndex++] = (byte)'A';
+						i++;
+						break;
+					case (byte)'D':
+						deslippedBuffer [deslippedBufferIndex++] = (byte)'B';
+						i++;
+						break;
+					}
+
+				// else the index represents a regular byte, add it to the deslipped buffer
+				} else
+					deslippedBuffer [deslippedBufferIndex++] = buffer [i];
+			}
+
+			return new Tuple<byte[], int>(deslippedBuffer, deslippedBufferIndex);
+		}
 	}
 }
