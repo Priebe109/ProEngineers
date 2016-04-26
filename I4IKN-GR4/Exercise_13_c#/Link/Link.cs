@@ -53,7 +53,8 @@ namespace Linklaget
 		/// </param>
 		public void send (byte[] buf, int size)
 		{
-	    	// TO DO Your own code
+		    Tuple<byte[], int> slipData = Slip(buf,size);
+		    serialPort.Write(slipData.Item1, 0, slipData.Item2);
 		}
 
 		/// <summary>
@@ -107,28 +108,38 @@ namespace Linklaget
 			return new Tuple<byte[], int>(deslippedBuffer, deslippedBufferIndex);
 		}
 
-	    byte[] _returnArray;
+	    
 
 
-        public Tuple<byte[], int> Slip(byte[] buf, int size)
+        public static Tuple<byte[], int> Slip(byte[] buf, int size)
 	    {
-	        _returnArray = new byte[2008];
-            _returnArray[0] = (byte)'A';
+	        byte[] returnArray = new byte[2008];
+            returnArray[0] = (byte)'A';
             int pointerToLastconversion=0, i, returnArrayPointer=1;
 
             for (i = 0; i < size; i++)
             {
                 if (buf[i] == 'A')
                 { 
-                    Array.Copy(buf,pointerToLastconversion,_returnArray,returnArrayPointer,((i-pointerToLastconversion)-1));
+                    Array.Copy(buf,pointerToLastconversion,returnArray,returnArrayPointer,(i-pointerToLastconversion));
                     returnArrayPointer += ((i - pointerToLastconversion));
                     pointerToLastconversion = i+1;
-                    _returnArray[returnArrayPointer] = (byte)'B';
-                    _returnArray[returnArrayPointer+1] = (byte)'C';
-                    returnArrayPointer =+ 2;
+                    returnArray[returnArrayPointer] = (byte)'B';
+                    returnArray[returnArrayPointer+1] = (byte)'C';
+                    returnArrayPointer += 2;
+                }
+                else if (buf[i] == 'B')
+                {
+                    Array.Copy(buf, pointerToLastconversion, returnArray, returnArrayPointer, (i - pointerToLastconversion));
+                    returnArrayPointer += ((i - pointerToLastconversion));
+                    pointerToLastconversion = i + 1;
+                    returnArray[returnArrayPointer] = (byte)'B';
+                    returnArray[returnArrayPointer + 1] = (byte)'D';
+                    returnArrayPointer += 2;
                 }
 
             }
+            return new Tuple<byte[], int>(returnArray, returnArrayPointer);
 	    }
 	}
 }
