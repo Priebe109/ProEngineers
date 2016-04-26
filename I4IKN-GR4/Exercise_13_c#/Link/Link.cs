@@ -67,7 +67,7 @@ namespace Linklaget
 		/// </param>
 		public int receive (ref byte[] buf)
 		{
-			serialPort.Read (buffer, 0, buffer.Length / 2);
+			serialPort.Read (buffer, 0, buffer.Length);
 			var deslippedInfo = Deslip (buffer);
 			buf = deslippedInfo.Item1;
 			return deslippedInfo.Item2;
@@ -75,7 +75,7 @@ namespace Linklaget
 
 		public Tuple<byte[], int> Deslip(byte[] buffer)
 		{
-			var deslippedBuffer = new byte[buffer.Length];
+			var deslippedBuffer = new byte[buffer.Length / 2];
 			var deslippedBufferIndex = 0;
 			var delimitersEncountered = 0;
 
