@@ -13,7 +13,7 @@ namespace Exercise13.Test.Unit
     internal class LinkLayerTest
     {
         [Test]
-        public void Slip_A_ReturnsABC()
+        public void Slip_Afirstplace_ReturnsABC()
         {
             byte[] buf = new[] {(byte) 'A'};
             byte[] bufTest = new[] { (byte)'A',(byte)'B', (byte)'C' };
@@ -23,7 +23,7 @@ namespace Exercise13.Test.Unit
         }
 
         [Test]
-        public void Slip_B_ReturnABD()
+        public void Slip_Bfirstplace_ReturnABD()
         {
             byte[] buf = new[] { (byte)'B' };
             byte[] bufTest = new[] { (byte)'A', (byte)'B', (byte)'D' };
@@ -32,5 +32,18 @@ namespace Exercise13.Test.Unit
             Assert.That(Link.Slip(buf, 1).Item1[2], Is.EqualTo(bufTest[2]));
         }
 
+
+        [Test]
+        public void Slip_Brandomplace_ReturnA123BD()
+        {
+            byte[] buf = new[] { (byte)'1', (byte)'2', (byte)'3', (byte)'B' };
+            byte[] bufTest = new[] { (byte)'A', (byte)'1', (byte)'2', (byte)'3', (byte)'B',(byte)'D' };
+            Assert.That(Link.Slip(buf, 1).Item1[0], Is.EqualTo(bufTest[0]));
+            Assert.That(Link.Slip(buf, 1).Item1[1], Is.EqualTo(bufTest[1]));
+            Assert.That(Link.Slip(buf, 1).Item1[2], Is.EqualTo(bufTest[2]));
+            Assert.That(Link.Slip(buf, 1).Item1[3], Is.EqualTo(bufTest[3]));
+            Assert.That(Link.Slip(buf, 1).Item1[4], Is.EqualTo(bufTest[4]));
+            Assert.That(Link.Slip(buf, 1).Item1[5], Is.EqualTo(bufTest[5]));
+        }
     }
 }

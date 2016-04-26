@@ -74,21 +74,21 @@ namespace Linklaget
 			return deslippedInfo.Item2;
 		}
 
-		public Tuple<byte[], int> Deslip(byte[] buf)
+		public Tuple<byte[], int> Deslip(byte[] buffer)
 		{
 			var deslippedBuffer = new byte[buffer.Length / 2];
 			var deslippedBufferIndex = 0;
 			var delimitersEncountered = 0;
 
-			for (int i = 0; i < buf.Length && delimitersEncountered < 2; i++) {
+			for (int i = 0; i < buffer.Length && delimitersEncountered < 2; i++) {
 
 				// if delimiter is encountered, register and continue
-				if (buf [i] == DELIMITER)
+				if (buffer [i] == DELIMITER)
 					delimitersEncountered++;
 				
 				// if the substitute character is encountered, check the case and continue
-				else if (i < (buf.Length - 1) && buf [i] == (byte)'B') {
-					switch (buf [i]) {
+				else if (i < (buffer.Length - 1) && buffer [i] == (byte)'B') {
+					switch (buffer [i]) {
 					default:
 					case (byte)'C':
 						deslippedBuffer [deslippedBufferIndex++] = (byte)'A';
@@ -102,7 +102,7 @@ namespace Linklaget
 
 				// else the index represents a regular byte, add it to the deslipped buffer
 				} else
-					deslippedBuffer [deslippedBufferIndex++] = buf [i];
+					deslippedBuffer [deslippedBufferIndex++] = buffer [i];
 			}
 
 			return new Tuple<byte[], int>(deslippedBuffer, deslippedBufferIndex);
@@ -113,7 +113,7 @@ namespace Linklaget
 
         public static Tuple<byte[], int> Slip(byte[] buf, int size)
 	    {
-	        byte[] returnArray = new byte[2008];
+	        byte[] returnArray = new byte[2010];
             returnArray[0] = (byte)'A';
             int pointerToLastconversion=0, i, returnArrayPointer=1;
 
@@ -139,6 +139,8 @@ namespace Linklaget
                 }
 
             }
+            returnArray[returnArrayPointer] = (byte) 'A';
+            ++returnArrayPointer;
             return new Tuple<byte[], int>(returnArray, returnArrayPointer);
 	    }
 	}

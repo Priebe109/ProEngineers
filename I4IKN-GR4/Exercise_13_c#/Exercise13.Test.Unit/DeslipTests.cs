@@ -8,7 +8,7 @@ using NUnit.Framework;
 namespace Exercise13.Test.Unit
 {
 	[TestFixture]
-	public class DeslipTests
+	internal class DeslipTests
 	{
 		const byte DELIMITER = (byte)'A';
 
