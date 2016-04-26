@@ -399,45 +399,6 @@
             </relationshipOwnedElementsInternal>
           </association>
           <association
-            Id="da743129-34db-44cf-83e9-246b45866e25"
-            isDerived="false"
-            sourceEndRoleName="EventDetector"
-            targetEndRoleName="EventTimer"
-            isLeaf="false"
-            isAbstract="false">
-            <classMoniker
-              Id="2597b420-4ef4-487a-b297-9ba5e1632d91"
-              LastKnownName="EventTimer"
-              LastKnownLocation="ATM16101.Modelling.uml" />
-            <relationshipOwnedElementsInternal>
-              <associationHasOwnedEnds>
-                <memberEnd
-                  Id="ac320266-f7af-45d6-8027-b565ad8685c7"
-                  name="EventDetector"
-                  isLeaf="false"
-                  isStatic="false"
-                  isReadOnly="false"
-                  isDerived="false"
-                  isDerivedUnion="false"
-                  aggregation="None"
-                  isComposite="false"
-                  isNavigableOwned="false" />
-              </associationHasOwnedEnds>
-              <associationHasOwnedEnds>
-                <memberEnd
-                  Id="c84d9db5-264d-4c70-81f0-d9fd180c1e4c"
-                  name="EventTimer"
-                  isLeaf="false"
-                  isStatic="false"
-                  isReadOnly="false"
-                  isDerived="false"
-                  isDerivedUnion="false"
-                  aggregation="None"
-                  isComposite="false" />
-              </associationHasOwnedEnds>
-            </relationshipOwnedElementsInternal>
-          </association>
-          <association
             Id="9d10c47a-051a-40b2-9cf0-9ee99d0c7875"
             isDerived="false"
             sourceEndRoleName="EventDetector"
@@ -466,6 +427,45 @@
                 <memberEnd
                   Id="a2fbef88-1741-4320-94fb-80762567fddc"
                   name="TrackEvent"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="799f4c09-62c9-4804-9aa3-d30d8e805d1b"
+            isDerived="false"
+            sourceEndRoleName="EventDetector"
+            targetEndRoleName="IEventTimer"
+            isLeaf="false"
+            isAbstract="false">
+            <interfaceMoniker
+              Id="efcfb903-fabe-4a21-b53a-162117f2ab11"
+              LastKnownName="IEventTimer"
+              LastKnownLocation="ATM16101.Modelling.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="888079a8-f5a5-4ec5-ab5f-b4cdbd6189cd"
+                  name="EventDetector"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="a51f647c-f968-41ca-b909-26a2e7a3dd7b"
+                  name="IEventTimer"
                   isLeaf="false"
                   isStatic="false"
                   isReadOnly="false"
@@ -573,11 +573,36 @@
         isAbstract="false"
         isLeaf="false"
         isActiveClass="false">
+        <suppliersInternal>
+          <interfaceRealization
+            Id="6ca4293f-2862-4a7f-8c7e-1937c087174a">
+            <interfaceMoniker
+              Id="efcfb903-fabe-4a21-b53a-162117f2ab11"
+              LastKnownName="IEventTimer"
+              LastKnownLocation="ATM16101.Modelling.uml" />
+          </interfaceRealization>
+        </suppliersInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="eaac46c2-9a7e-4d52-ba24-84d8e2496ae3"
+        name="TrackEvent"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <Interface
+        Id="efcfb903-fabe-4a21-b53a-162117f2ab11"
+        name="IEventTimer"
+        isAbstract="false"
+        isLeaf="false">
         <targetEnds>
           <association
-            Id="ffb05e5f-111d-497d-826a-108a9002b3f7"
+            Id="1cfeff09-0742-4af5-9345-a2d064674981"
             isDerived="false"
-            sourceEndRoleName="EventTimer"
+            sourceEndRoleName="IEventTimer"
             targetEndRoleName="IDisplay"
             isLeaf="false"
             isAbstract="false">
@@ -588,8 +613,8 @@
             <relationshipOwnedElementsInternal>
               <associationHasOwnedEnds>
                 <memberEnd
-                  Id="ce1d8f83-55d5-485e-a992-b4eca35be749"
-                  name="EventTimer"
+                  Id="f9e87878-2a1c-4c7c-a2d4-f646a2de4a6b"
+                  name="IEventTimer"
                   isLeaf="false"
                   isStatic="false"
                   isReadOnly="false"
@@ -601,7 +626,7 @@
               </associationHasOwnedEnds>
               <associationHasOwnedEnds>
                 <memberEnd
-                  Id="1b1e661b-9b7a-4743-9e2c-6902dc57bbc1"
+                  Id="8aa38bd1-0a7c-46d5-86d7-190b3c1b34cc"
                   name="IDisplay"
                   isLeaf="false"
                   isStatic="false"
@@ -614,9 +639,9 @@
             </relationshipOwnedElementsInternal>
           </association>
           <association
-            Id="6ec77584-6db3-4285-969e-db8d9ed31fef"
+            Id="e291cd6d-35e0-4771-b790-2e2ed277b1e6"
             isDerived="false"
-            sourceEndRoleName="EventTimer"
+            sourceEndRoleName="IEventTimer"
             targetEndRoleName="TrackEvent"
             isLeaf="false"
             isAbstract="false">
@@ -627,8 +652,8 @@
             <relationshipOwnedElementsInternal>
               <associationHasOwnedEnds>
                 <memberEnd
-                  Id="d5db8eec-6ca4-4135-913a-cf89ebd19cd0"
-                  name="EventTimer"
+                  Id="c369c9d1-d704-44fc-9db3-577ef8d92777"
+                  name="IEventTimer"
                   isLeaf="false"
                   isStatic="false"
                   isReadOnly="false"
@@ -640,7 +665,7 @@
               </associationHasOwnedEnds>
               <associationHasOwnedEnds>
                 <memberEnd
-                  Id="19a48a2b-072a-4d88-84f3-50495ad6b620"
+                  Id="d33df27e-58a2-4526-b7a2-226877b0aee7"
                   name="TrackEvent"
                   isLeaf="false"
                   isStatic="false"
@@ -653,15 +678,7 @@
             </relationshipOwnedElementsInternal>
           </association>
         </targetEnds>
-      </class>
-    </packageHasNamedElement>
-    <packageHasNamedElement>
-      <class
-        Id="eaac46c2-9a7e-4d52-ba24-84d8e2496ae3"
-        name="TrackEvent"
-        isAbstract="false"
-        isLeaf="false"
-        isActiveClass="false" />
+      </Interface>
     </packageHasNamedElement>
   </packagedElements>
   <primitiveType
