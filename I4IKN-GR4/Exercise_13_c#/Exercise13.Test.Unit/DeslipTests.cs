@@ -10,11 +10,6 @@ namespace Exercise13.Test.Unit
 	[TestFixture]
 	internal class DeslipTests
 	{
-		const byte DELIMITER = (byte)'A';
-
-		[SetUp]
-		public DeslipTests ()
-		{
-		}
+		
 	}
 }

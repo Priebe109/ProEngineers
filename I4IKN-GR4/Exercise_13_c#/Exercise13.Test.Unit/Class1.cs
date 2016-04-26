@@ -38,12 +38,12 @@ namespace Exercise13.Test.Unit
         {
             byte[] buf = new[] { (byte)'1', (byte)'2', (byte)'3', (byte)'B' };
             byte[] bufTest = new[] { (byte)'A', (byte)'1', (byte)'2', (byte)'3', (byte)'B',(byte)'D' };
-            Assert.That(Link.Slip(buf, 1).Item1[0], Is.EqualTo(bufTest[0]));
-            Assert.That(Link.Slip(buf, 1).Item1[1], Is.EqualTo(bufTest[1]));
-            Assert.That(Link.Slip(buf, 1).Item1[2], Is.EqualTo(bufTest[2]));
-            Assert.That(Link.Slip(buf, 1).Item1[3], Is.EqualTo(bufTest[3]));
-            Assert.That(Link.Slip(buf, 1).Item1[4], Is.EqualTo(bufTest[4]));
-            Assert.That(Link.Slip(buf, 1).Item1[5], Is.EqualTo(bufTest[5]));
+            Assert.That(Link.Slip(buf, 4).Item1[0], Is.EqualTo(bufTest[0]));
+            Assert.That(Link.Slip(buf, 4).Item1[1], Is.EqualTo(bufTest[1]));
+            Assert.That(Link.Slip(buf, 4).Item1[2], Is.EqualTo(bufTest[2]));
+            Assert.That(Link.Slip(buf, 4).Item1[3], Is.EqualTo(bufTest[3]));
+            Assert.That(Link.Slip(buf, 4).Item1[4], Is.EqualTo(bufTest[4]));
+            Assert.That(Link.Slip(buf, 4).Item1[5], Is.EqualTo(bufTest[5]));
         }
     }
 }
