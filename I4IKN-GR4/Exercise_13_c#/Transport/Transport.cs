@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using Linklaget;
 
 /// <summary>
@@ -113,7 +114,15 @@ namespace Transportlaget
 		/// </param>
 		public int receive (ref byte[] buf)
 		{
-			// TO DO Your own code
+            // receive until successful
+		    var receiveSuccessful = false;
+		    do receiveSuccessful = receiveAck();
+		    while (!receiveSuccessful);
+
+            // remove headers from buffer and return length of received array
+		    var numberOfHeaderBytes = 4;
+		    buf = buffer.Skip(numberOfHeaderBytes).Take(buffer.Length- numberOfHeaderBytes).ToArray();
+		    return buf.Length;
 		}
 	}
 }
