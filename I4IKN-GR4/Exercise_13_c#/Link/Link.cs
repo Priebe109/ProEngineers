@@ -74,9 +74,9 @@ namespace Linklaget
 			return deslippedInfo.Item2;
 		}
 
-		public Tuple<byte[], int> Deslip(byte[] buffer)
+		public static Tuple<byte[], int> Deslip(byte[] buffer)
 		{
-			var deslippedBuffer = new byte[buffer.Length / 2];
+			var deslippedBuffer = new byte[buffer.Length];
 			var deslippedBufferIndex = 0;
 			var delimitersEncountered = 0;
 
@@ -88,16 +88,17 @@ namespace Linklaget
 				
 				// if the substitute character is encountered, check the case and continue
 				else if (i < (buffer.Length - 1) && buffer [i] == (byte)'B') {
-					switch (buffer [i]) {
-					default:
+					switch (buffer [i + 1]) {
 					case (byte)'C':
 						deslippedBuffer [deslippedBufferIndex++] = (byte)'A';
 						i++;
 						break;
 					case (byte)'D':
 						deslippedBuffer [deslippedBufferIndex++] = (byte)'B';
-						i++;
+                        i++;
 						break;
+                    default:
+					    break;
 					}
 
 				// else the index represents a regular byte, add it to the deslipped buffer
@@ -105,7 +106,9 @@ namespace Linklaget
 					deslippedBuffer [deslippedBufferIndex++] = buffer [i];
 			}
 
-			return new Tuple<byte[], int>(deslippedBuffer, deslippedBufferIndex);
+		    var truncatedResultBuffer = new byte[deslippedBufferIndex];
+            Array.Copy(deslippedBuffer,truncatedResultBuffer,deslippedBufferIndex);
+            return new Tuple<byte[], int>(truncatedResultBuffer, deslippedBufferIndex);
 		}
 
 	    
