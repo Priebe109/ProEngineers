@@ -10,7 +10,7 @@ using Linklaget;
 namespace Exercise13.Test.Unit
 {
     [TestFixture]
-    internal class LinkLayerTest
+    internal class SlipTests
     {
         [Test]
         public void Slip_Afirstplace_ReturnsABC()
