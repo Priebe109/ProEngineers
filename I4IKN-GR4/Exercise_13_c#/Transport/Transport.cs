@@ -115,23 +115,32 @@ namespace Transportlaget
 
 		}
 
-		/// <summary>
-		/// Receive the specified buffer.
-		/// </summary>
-		/// <param name='buffer'>
-		/// Buffer.
-		/// </param>
-		public int receive (ref byte[] buf)
-		{
-            // receive until successful
-		    var receiveSuccessful = false;
-		    do receiveSuccessful = receiveAck();
-		    while (!receiveSuccessful);
+	    /// <summary>
+	    /// Receive the specified buffer.
+	    /// </summary>
+	    /// <param name='buffer'>
+	    /// Buffer.
+	    /// </param>
+	    public int receive(ref byte[] buf)
+	    {
+	        int bytesReceived;
+	        bool checksumOk;
 
-            // remove headers from buffer and return length of received array
-		    var numberOfHeaderBytes = 4;
-		    buf = buffer.Skip(numberOfHeaderBytes).Take(buffer.Length- numberOfHeaderBytes).ToArray();
-		    return buf.Length;
-		}
+            // receive data from the link layer until valid data is received
+	        do
+	        {
+	            bytesReceived = link.receive(ref buffer);
+	            checksumOk = checksum.checkChecksum(buffer, bytesReceived);
+
+	            if (checksumOk) continue;
+	            sendAck(false);
+
+	        } while (!checksumOk);
+
+	        // received something valid, send ack and return the received values
+	        sendAck(true);
+	        buf = buffer;
+	        return bytesReceived;
+	    }
 	}
 }
