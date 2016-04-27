@@ -17,34 +17,93 @@ namespace Application
 		/// Initializes a new instance of the <see cref="file_server"/> class.
 		/// </summary>
 		private file_server ()
-		{
-			// TO DO Your own code
-		}
+        {
+            byte[] buf = new byte[BUFSIZE];
+            Transport transport = new Transport(BUFSIZE);
+            Console.WriteLine(" >> Server Started");
 
-		/// <summary>
-		/// Sends the file.
-		/// </summary>
-		/// <param name='fileName'>
-		/// File name.
-		/// </param>
-		/// <param name='fileSize'>
-		/// File size.
-		/// </param>
-		/// <param name='tl'>
-		/// Tl.
-		/// </param>
-		private void sendFile(String fileName, long fileSize, Transport transport)
-		{
-			// TO DO Your own code
-		}
+            while (true)
+            {
+                Console.WriteLine(" >> Server waiting for a client");
+  
+                Console.WriteLine(" >> Accept connection from client");
+                try
+                {
+                    // Receive bytes from client and convert to string.
+                    transport.receive(ref buf);
 
-		/// <summary>
-		/// The entry point of the program, where the program control starts and ends.
-		/// </summary>
-		/// <param name='args'>
-		/// The command-line arguments.
-		/// </param>
-		public static void Main (string[] args)
+                    //Reads text from networkStream with TCP. Checks if file exists and sends file.
+                    var fileReq = System.Text.Encoding.Default.GetString(buf);
+
+                    Console.WriteLine(" >> Data from client: " + fileReq);
+                    long fileCheck = LIB.check_File_Exists(fileReq);
+
+                    if (fileCheck == 0)
+                    {
+                        Console.WriteLine("File not found");
+                        //Write error message to client
+                    }
+                    else
+                    {
+                        sendFile(fileReq, fileCheck, transport);
+                    }
+                    
+                    Console.WriteLine(" >> Closed client connection");
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.ToString());
+                }
+            }
+        }
+
+        /// <summary>
+        /// Sends the file.
+        /// </summary>
+        /// <param name='fileName'>
+        /// File name.
+        /// </param>
+        /// <param name='fileSize'>
+        /// File size.
+        /// </param>
+        /// <param name='tl'>
+        /// Tl.
+        /// </param>
+        private void sendFile(String fileName, long fileSize, Transport transport)
+        {
+            FileStream fileStream = new FileStream(fileName, FileMode.Open, FileAccess.Read);
+            int fileLength = (int)fileStream.Length;
+            int packetLength;
+            //Calculate total packet amount 
+            int packetCount = (int)Math.Ceiling((double)fileLength / (double)BUFSIZE);
+
+            for (int i = 0; i < packetCount; i++)
+            {
+                //Set current packetLength
+                if (fileLength > BUFSIZE)
+                {
+                    packetLength = BUFSIZE;
+                    fileLength -= packetLength;
+                }
+                else {
+                    packetLength = fileLength;
+                }
+                //Send packet
+                var outBuffer = new byte[packetLength];
+                fileStream.Read(outBuffer, 0, packetLength);
+                transport.send(outBuffer, packetLength);
+                Console.Write("\rSent {0} out of {1} packets", i + 1, packetCount);
+            }
+            Console.WriteLine();
+        }
+
+        /// <summary>
+        /// The entry point of the program, where the program control starts and ends.
+        /// </summary>
+        /// <param name='args'>
+        /// The command-line arguments.
+        /// </param>
+        public static void Main (string[] args)
 		{
 			new file_server();
 		}
