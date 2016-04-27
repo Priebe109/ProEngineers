@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using Linklaget;
 
 /// <summary>
@@ -102,7 +103,15 @@ namespace Transportlaget
 		/// </param>
 		public void send(byte[] buf, int size)
 		{
-			// TO DO Your own code
+		    buf[2] = seqNo;
+		    buf[3] = 0;
+            checksum.calcChecksum(ref buf, size);
+		    link.send(buf, size);
+		    while (!receiveAck())
+		    {
+		        link.send(buf,size);
+		    }
+
 		}
 
 		/// <summary>
