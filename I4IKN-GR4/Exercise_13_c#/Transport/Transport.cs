@@ -1,9 +1,6 @@
 using System;
-<<<<<<< HEAD
 using System.IO;
-=======
 using System.Linq;
->>>>>>> 3aa289cc896937c18ff691999c3410c4b66162e8
 using Linklaget;
 
 /// <summary>
