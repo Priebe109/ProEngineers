@@ -26,7 +26,7 @@ namespace Linklaget
         /// <summary>
 		/// The serial port.
 		/// </summary>
-		bool dataReceived = false;
+		private volatile bool dataReceived = false;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="link"/> class.
@@ -46,6 +46,7 @@ namespace Linklaget
 			serialPort.DiscardOutBuffer ();
 
             // Subscribe to read events
+            serialPort.DtrEnable = true;
             serialPort.DataReceived += SerialPort_DataReceived;
 		}
 

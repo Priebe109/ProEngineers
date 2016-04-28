@@ -107,12 +107,9 @@ namespace Transportlaget
 		    buf[2] = seqNo;
 		    buf[3] = 0;
             checksum.calcChecksum(ref buf, size);
-		    link.send(buf, size);
-		    while (!receiveAck())
-		    {
-		        link.send(buf,size);
-		    }
 
+		    do link.send(buf, size);
+		    while (!receiveAck());
 		}
 
 	    /// <summary>
