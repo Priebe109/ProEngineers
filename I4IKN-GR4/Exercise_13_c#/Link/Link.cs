@@ -1,5 +1,6 @@
 using System;
 using System.IO.Ports;
+using System.Threading;
 
 /// <summary>
 /// Link.
@@ -24,9 +25,9 @@ namespace Linklaget
 		/// </summary>
 		SerialPort serialPort;
         /// <summary>
-		/// The serial port.
+		/// Manual 
 		/// </summary>
-		private volatile bool dataReceived = false;
+		private ManualResetEvent dataResetEvent = new ManualResetEvent(false);
 
         /// <summary>
         /// Initializes a new instance of the <see cref="link"/> class.
@@ -53,7 +54,7 @@ namespace Linklaget
         private void SerialPort_DataReceived(object sender, SerialDataReceivedEventArgs e)
         {
             serialPort.Read(buffer, 0, buffer.Length);
-            dataReceived = true;
+            dataResetEvent.Set();
         }
 
         /// <summary>
@@ -83,13 +84,11 @@ namespace Linklaget
 		public int receive (ref byte[] buf)
 		{
             // Wait for data...
-		    while (!dataReceived)
-		    {
-		    }
-		    dataReceived = false;
+		    dataResetEvent.WaitOne();
+		    dataResetEvent.Reset();
 
             // Deslip and return data
-			var deslippedInfo = Deslip (buffer);
+            var deslippedInfo = Deslip (buffer);
 			buf = deslippedInfo.Item1;
 			return deslippedInfo.Item2;
 		}
