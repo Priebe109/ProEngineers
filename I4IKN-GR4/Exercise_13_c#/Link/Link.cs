@@ -23,11 +23,15 @@ namespace Linklaget
 		/// The serial port.
 		/// </summary>
 		SerialPort serialPort;
-
-		/// <summary>
-		/// Initializes a new instance of the <see cref="link"/> class.
+        /// <summary>
+		/// The serial port.
 		/// </summary>
-		public Link (int BUFSIZE)
+		bool dataReceived = false;
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="link"/> class.
+        /// </summary>
+        public Link (int BUFSIZE)
 		{
 			// Create a new SerialPort object with default settings.
 			serialPort = new SerialPort("/dev/ttyS1",115200,Parity.None,8,StopBits.One);
@@ -40,18 +44,27 @@ namespace Linklaget
 			serialPort.ReadTimeout = 200;
 			serialPort.DiscardInBuffer ();
 			serialPort.DiscardOutBuffer ();
+
+            // Subscribe to read events
+            serialPort.DataReceived += SerialPort_DataReceived;
 		}
 
-		/// <summary>
-		/// Send the specified buf and size.
-		/// </summary>
-		/// <param name='buf'>
-		/// Buffer.
-		/// </param>
-		/// <param name='size'>
-		/// Size.
-		/// </param>
-		public void send (byte[] buf, int size)
+        private void SerialPort_DataReceived(object sender, SerialDataReceivedEventArgs e)
+        {
+            serialPort.Read(buffer, 0, buffer.Length);
+            dataReceived = true;
+        }
+
+        /// <summary>
+        /// Send the specified buf and size.
+        /// </summary>
+        /// <param name='buf'>
+        /// Buffer.
+        /// </param>
+        /// <param name='size'>
+        /// Size.
+        /// </param>
+        public void send (byte[] buf, int size)
 		{
 		    Tuple<byte[], int> slipData = Slip(buf,size);
 		    serialPort.Write(slipData.Item1, 0, slipData.Item2);
@@ -68,7 +81,13 @@ namespace Linklaget
 		/// </param>
 		public int receive (ref byte[] buf)
 		{
-			serialPort.Read (buffer, 0, buffer.Length);
+            // Wait for data...
+		    while (!dataReceived)
+		    {
+		    }
+		    dataReceived = false;
+
+            // Deslip and return data
 			var deslippedInfo = Deslip (buffer);
 			buf = deslippedInfo.Item1;
 			return deslippedInfo.Item2;
