@@ -45,17 +45,7 @@ namespace Linklaget
 			serialPort.ReadTimeout = 200;
 			serialPort.DiscardInBuffer ();
 			serialPort.DiscardOutBuffer ();
-
-            // Subscribe to read events
-            serialPort.DtrEnable = true;
-            serialPort.DataReceived += SerialPort_DataReceived;
 		}
-
-        private void SerialPort_DataReceived(object sender, SerialDataReceivedEventArgs e)
-        {
-            serialPort.Read(buffer, 0, buffer.Length);
-            dataResetEvent.Set();
-        }
 
         /// <summary>
         /// Send the specified buf and size.
@@ -83,11 +73,7 @@ namespace Linklaget
 		/// </param>
 		public int receive (ref byte[] buf)
 		{
-            // Wait for data...
-		    dataResetEvent.WaitOne();
-		    dataResetEvent.Reset();
-
-            // Deslip and return data
+		    serialPort.Read(buffer, 0, buffer.Length);
             var deslippedInfo = Deslip (buffer);
 			buf = deslippedInfo.Item1;
 			return deslippedInfo.Item2;
@@ -129,9 +115,6 @@ namespace Linklaget
             Array.Copy(deslippedBuffer,truncatedResultBuffer,deslippedBufferIndex);
             return new Tuple<byte[], int>(truncatedResultBuffer, deslippedBufferIndex);
 		}
-
-	    
-
 
         public static Tuple<byte[], int> Slip(byte[] buf, int size)
 	    {

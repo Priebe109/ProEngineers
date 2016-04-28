@@ -21,16 +21,16 @@ namespace Application
             byte[] buf = new byte[BUFSIZE];
             Transport transport = new Transport(BUFSIZE);
             Console.WriteLine(" >> Server Started");
+            Console.WriteLine(" >> Server waiting for a client");
 
             while (true)
             {
-                Console.WriteLine(" >> Server waiting for a client");
-  
-                Console.WriteLine(" >> Accept connection from client");
+                
                 try
                 {
                     // Receive bytes from client and convert to string.
                     transport.receive(ref buf);
+                    Console.WriteLine(" >> Accept connection from client");
 
                     //Reads text from networkStream with TCP. Checks if file exists and sends file.
                     var fileReq = System.Text.Encoding.Default.GetString(buf);
@@ -49,6 +49,7 @@ namespace Application
                     }
                     
                     Console.WriteLine(" >> Closed client connection");
+                    Console.WriteLine(" >> Server waiting for a client");
                 }
                 catch (Exception ex)
                 {
