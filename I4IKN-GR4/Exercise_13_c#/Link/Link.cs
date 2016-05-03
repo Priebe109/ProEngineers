@@ -1,5 +1,6 @@
 using System;
 using System.IO.Ports;
+using System.Linq;
 using System.Threading;
 
 /// <summary>
@@ -144,9 +145,11 @@ namespace Linklaget
                 }
 
             }
+            Array.Copy(buf, pointerToLastconversion, returnArray, returnArrayPointer, (size - pointerToLastconversion));
+            returnArrayPointer += size - pointerToLastconversion;
             returnArray[returnArrayPointer] = (byte) 'A';
-            ++returnArrayPointer;
-            return new Tuple<byte[], int>(returnArray, returnArrayPointer);
+            returnArrayPointer++;
+            return new Tuple<byte[], int>(returnArray.Take(returnArrayPointer).ToArray(), returnArrayPointer);
 	    }
 	}
 }
