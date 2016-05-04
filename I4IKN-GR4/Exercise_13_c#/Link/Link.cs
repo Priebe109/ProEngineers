@@ -28,7 +28,7 @@ namespace Linklaget
         /// <summary>
 		/// Manual 
 		/// </summary>
-		private ManualResetEvent dataResetEvent = new ManualResetEvent(false);
+		//private ManualResetEvent dataResetEvent = new ManualResetEvent(false);
 
         /// <summary>
         /// Initializes a new instance of the <see cref="link"/> class.
@@ -43,7 +43,7 @@ namespace Linklaget
 
 			buffer = new byte[(BUFSIZE*2)];
 
-			serialPort.ReadTimeout = 200;
+			serialPort.ReadTimeout = 20000;
 			serialPort.DiscardInBuffer ();
 			serialPort.DiscardOutBuffer ();
 		}

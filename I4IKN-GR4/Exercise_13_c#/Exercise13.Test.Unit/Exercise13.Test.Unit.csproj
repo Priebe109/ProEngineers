@@ -52,7 +52,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Link\Link.csproj">
-      <Project>{6d10c85b-63e3-416b-a3b8-0e6498b7c1c1}</Project>
+      <Project>{6D10C85B-63E3-416B-A3B8-0E6498B7C1C1}</Project>
       <Name>Link</Name>
     </ProjectReference>
   </ItemGroup>

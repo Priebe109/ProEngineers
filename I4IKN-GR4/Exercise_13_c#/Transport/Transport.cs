@@ -104,11 +104,13 @@ namespace Transportlaget
 		/// </param>
 		public void send(byte[] buf, int size)
 		{
-		    buf[2] = seqNo;
-		    buf[3] = 0;
-            checksum.calcChecksum(ref buf, size);
+			Array.Copy (buf, 0, buffer, 4, size);
 
-		    do link.send(buf, size);
+			buffer[2] = seqNo;
+		    buffer[3] = 0;
+            checksum.calcChecksum(ref buffer, size + 4);
+
+		    do link.send(buffer, size + 4);
 		    while (!receiveAck());
 		}
 
@@ -135,8 +137,9 @@ namespace Transportlaget
 	        } while (!checksumOk);
 
 	        // received something valid, send ack and return the received values
-	        sendAck(true);
-	        buf = buffer;
+			sendAck(true);
+			bytesReceived -= 4;
+			buf = buffer.Skip(4).ToArray();
 	        return bytesReceived;
 	    }
 	}

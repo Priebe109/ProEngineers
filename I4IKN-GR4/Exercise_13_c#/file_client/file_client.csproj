@@ -3,8 +3,6 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
-    <ProductVersion>10.0.0</ProductVersion>
-    <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{DB485B50-5258-42F1-ABC9-2774EEE3360F}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <RootNamespace>client</RootNamespace>

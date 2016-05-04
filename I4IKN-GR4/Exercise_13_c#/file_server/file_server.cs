@@ -21,7 +21,6 @@ namespace Application
             byte[] buf = new byte[BUFSIZE];
             Transport transport = new Transport(BUFSIZE);
             Console.WriteLine(" >> Server Started");
-            Console.WriteLine(" >> Server waiting for a client");
 
             while (true)
             {
@@ -30,22 +29,27 @@ namespace Application
                 {
                     // Receive bytes from client and convert to string.
                     transport.receive(ref buf);
-                    Console.WriteLine(" >> Accept connection from client");
+					Console.WriteLine(" >> Server waiting for a client");
 
                     //Reads text from networkStream with TCP. Checks if file exists and sends file.
                     var fileReq = System.Text.Encoding.Default.GetString(buf);
 
                     Console.WriteLine(" >> Data from client: " + fileReq);
                     long fileCheck = LIB.check_File_Exists(fileReq);
-
+					var answerBuf = Encoding.ASCII.GetBytes("NOT FOUND");
                     if (fileCheck == 0)
                     {
-                        Console.WriteLine("File not found");
+                        Console.WriteLine(" >> File not found");
                         //Write error message to client
+						transport.send(answerBuf, answerBuf.Length);
                     }
                     else
                     {
-                        sendFile(fileReq, fileCheck, transport);
+						answerBuf = Encoding.ASCII.GetBytes("OK");
+						transport.send(answerBuf, answerBuf.Length);
+						sendFile(fileReq, fileCheck, transport);
+
+						Console.WriteLine(" >> File send to client");
                     }
                     
                     Console.WriteLine(" >> Closed client connection");
@@ -53,7 +57,7 @@ namespace Application
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine(ex.ToString());
+                    //Console.WriteLine(ex.ToString());
                 }
             }
         }
