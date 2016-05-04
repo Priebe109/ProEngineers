@@ -70,10 +70,18 @@ namespace Application
 		/// Transportlaget
 		/// </param>
 		private void receiveFile (String fileName, Transport transport)
-		{
-			// TO DO Your own code
-            Console.WriteLine("File received!");
-		}
+        {
+            // Client’en skal modtage den ønskede fil fejlfrit fra serveren – eller udskrive en fejlmelding hvis filen ikke findes i serveren.
+            byte[] outBuffer = new byte[BUFSIZE];
+            int received;
+            FileStream fileStream = new FileStream(fileName, FileMode.Create, FileAccess.ReadWrite);
+
+            // While bytes received > 0.
+            while ((received = transport.receive(ref outBuffer)) > 0)
+                fileStream.Write(outBuffer, 0, received);
+
+            Console.WriteLine(" >> Recieved file");
+        }
 
 		/// <summary>
 		/// The entry point of the program, where the program control starts and ends.
