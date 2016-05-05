@@ -74,7 +74,21 @@ namespace Linklaget
 		/// </param>
 		public int receive (ref byte[] buf)
 		{
-		    serialPort.Read(buffer, 0, buffer.Length);
+            //tmpBuffer to read bytes one at a time
+		    byte[] tmpBuffer = new byte[1];
+		    int bytesRecieved = 0;
+
+		    serialPort.Read(tmpBuffer, 0, 1);
+            buffer[bytesRecieved] = tmpBuffer[0];
+		    bytesRecieved++;
+
+            do
+		    {
+		        serialPort.Read(tmpBuffer, 0, 1);
+		        buffer[bytesRecieved] = tmpBuffer[0];
+		        bytesRecieved++;
+		    } while (tmpBuffer[0] != DELIMITER);
+
             var deslippedInfo = Deslip (buffer);
 			buf = deslippedInfo.Item1;
 			return deslippedInfo.Item2;

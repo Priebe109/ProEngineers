@@ -104,7 +104,8 @@ namespace Transportlaget
 		/// </param>
 		public void send(byte[] buf, int size)
 		{
-			Array.Copy (buf, 0, buffer, 4, size);
+            buffer = new byte[size + 4];	//Packet size + header size
+            Array.Copy (buf, 0, buffer, 4, size);
 
 			buffer[2] = seqNo;
 		    buffer[3] = 0;

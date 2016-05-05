@@ -36,17 +36,19 @@ namespace Application
 
                     Console.WriteLine(" >> Data from client: " + fileReq);
                     long fileCheck = LIB.check_File_Exists(fileReq);
-					var answerBuf = Encoding.ASCII.GetBytes("NOT FOUND");
+                    var answerBuf = Encoding.ASCII.GetBytes(fileCheck.ToString());
+                    transport.send(answerBuf, answerBuf.Length);
                     if (fileCheck == 0)
                     {
                         Console.WriteLine(" >> File not found");
                         //Write error message to client
-						transport.send(answerBuf, answerBuf.Length);
+                        //var answerBuf = Encoding.ASCII.GetBytes("NOT FOUND");
+                        //transport.send(answerBuf, answerBuf.Length);
                     }
                     else
                     {
-						answerBuf = Encoding.ASCII.GetBytes("OK");
-						transport.send(answerBuf, answerBuf.Length);
+						//var answerBuf = Encoding.ASCII.GetBytes("OK");
+						//transport.send(answerBuf, answerBuf.Length);
 						sendFile(fileReq, fileCheck, transport);
 
 						Console.WriteLine(" >> File send to client");
@@ -55,9 +57,9 @@ namespace Application
                     Console.WriteLine(" >> Closed client connection");
                     Console.WriteLine(" >> Server waiting for a client");
                 }
-                catch (Exception ex)
+                catch (TimeoutException)
                 {
-                    //Console.WriteLine(ex.ToString());
+                    Console.WriteLine("Timed out. Starting over");
                 }
             }
         }
