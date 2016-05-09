@@ -1,19 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <logicalClassDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" dslVersion="1.0.0.0" Id="f8950d9e-8cad-4d12-b582-264317ba87c1" name="COR" linkedPackageId="74f78062-7da0-4097-a554-afea11572259" xmlns="http://schemas.microsoft.com/dsltools/LogicalClassDesigner">
-  <profileInstances>
-    <packageHasProfileInstances Id="57eb421a-848b-4fb6-8b17-70fb82bfb564">
-      <profileInstance Id="7b419976-4822-4865-8492-bdfbfc1b0ad1" name="StandardProfileL2">
-        <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
-      </profileInstance>
-      <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
-    </packageHasProfileInstances>
-    <packageHasProfileInstances Id="1de5854f-e6af-46d5-9145-f53f7d05731f">
-      <profileInstance Id="f5008190-43fa-40db-a763-c214263285a8" name="StandardProfileL3">
-        <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
-      </profileInstance>
-      <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
-    </packageHasProfileInstances>
-  </profileInstances>
   <packagedElements>
     <logicalClassDesignerModelHasTypes>
       <class Id="7b634db4-19fc-45c0-afa9-c109a67374b8" name="IHandler" isAbstract="false" isLeaf="false" isActiveClass="false">
@@ -304,8 +290,176 @@
         <elementDefinition Id="18bd720a-4ae9-40de-84a2-7f70ada032c5" />
       </referencedType>
     </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="b1c1b82f-aad0-42cb-bb92-f99b56a0e14a" name="IHandler" isAbstract="false" isLeaf="false" cachedFullName="ChainOfResponsibility::IHandler">
+        <elementDefinition Id="18bd720a-4ae9-40de-84a2-7f70ada032c5" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="7cb34e8e-58e8-4a36-a770-0c5db1362f3c" name="IHandler" isAbstract="false" isLeaf="false" cachedFullName="ChainOfResponsibility::IHandler">
+        <elementDefinition Id="18bd720a-4ae9-40de-84a2-7f70ada032c5" />
+      </referencedType>
+    </packageHasNamedElement>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="239cc6cc-862d-498a-bc52-b3c58f535660" name="WordProcessor" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="611bb009-c668-48dc-aaa3-935e03dc861d" />
+        <targetEnds>
+          <association Id="045d015b-3a11-46b4-b17b-c3c32af8fd73" isDerived="false" sourceEndRoleName="WordProcessor" targetEndRoleName="Successor" isLeaf="false" isAbstract="false">
+            <classMoniker Id="e0741dcc-0801-49d5-847d-ecdb13836a97" LastKnownName="EnglishSpellChecker" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="5b536095-f44e-43ce-92e1-1480c0af35db" name="WordProcessor" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="2b526034-973e-4eb4-a1a2-c68fb01feab3" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="d6642da3-514d-4c60-b9ea-d36112345614" name="Successor" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="fcfe31ef-0847-456a-8cd8-fe0fcbe14fc7" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="9db0731e-ba8d-4f6d-95e5-64334cede0be" />
+          </association>
+        </targetEnds>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="e0741dcc-0801-49d5-847d-ecdb13836a97" name="EnglishSpellChecker" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="35f9010d-cf1d-4053-aec5-999b0bf1d170" />
+        <targetEnds>
+          <association Id="b8862746-9cc9-49e2-a79b-a9654891d55d" isDerived="false" sourceEndRoleName="EnglishSpellChecker" targetEndRoleName="Successor" isLeaf="false" isAbstract="false">
+            <classMoniker Id="aa3b7d11-ef03-4b45-957a-ae1a425d01d4" LastKnownName="DanishSpellChecker" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="55eff860-7d0f-4f28-b6e2-04901bb66397" name="EnglishSpellChecker" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="f664d447-5a8e-4422-b5b6-ffe5e4d85ccb" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="4556817c-27fc-4939-8aa9-f22b8dc42138" name="Successor" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="a525ee1b-adf5-4c70-a1fe-bf311a46d529" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="bcdad95e-a917-480d-8782-70e14bb10f64" />
+          </association>
+        </targetEnds>
+        <ownedAttributesInternal>
+          <property Id="2a912b24-f655-44f7-af1c-4771aecb7e75" name="Successor" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="a4113ca2-d8a1-4efa-9a1b-ad19883f086f" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="b1c1b82f-aad0-42cb-bb92-f99b56a0e14a" LastKnownName="IHandler" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation Id="6d2c34d8-3486-4826-aeff-401b57d29a92" name="HandleRequest" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="a4d40ee8-a972-4fc4-8d63-7eddc642eab2" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="f840522e-9d2d-47a4-b649-c8014cc0bd6c" name="Request" direction="In" isUnique="false">
+                  <elementDefinition Id="0a38f19a-f130-4dc5-858d-7e6ab5703f51" />
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="aa3b7d11-ef03-4b45-957a-ae1a425d01d4" name="DanishSpellChecker" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="8b758fed-181f-4c4c-93b8-63a19912918b" />
+        <ownedAttributesInternal>
+          <property Id="18647f94-4ba2-4871-ad2a-a1179fb815e6" name="Successor" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="56506c7d-3c00-4aad-b8d7-c3de8dd16d3b" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="7cb34e8e-58e8-4a36-a770-0c5db1362f3c" LastKnownName="IHandler" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation Id="f5ef3d55-eb0a-4c7d-83f1-f3e27e22363f" name="HandleRequest" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="48893679-fcda-4c0d-bfd2-06a2e8282f25" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="c3026315-2058-4b25-8b7f-00899ee71c54" name="Request" direction="In" isUnique="false">
+                  <elementDefinition Id="1c92351a-7070-483b-8afe-4c357331cb58" />
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <packageHasNamedElement>
+      <referencedType Id="0861c5ac-de7e-4569-a95b-18d2dd4068dc" name="IHandler" isAbstract="false" isLeaf="false" cachedFullName="ChainOfResponsibility::IHandler">
+        <elementDefinition Id="18bd720a-4ae9-40de-84a2-7f70ada032c5" />
+      </referencedType>
+    </packageHasNamedElement>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="96fcd6b3-bdc8-4674-b3bb-5dfbc0197268" name="EnglishSpellChecker" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="63cac6a7-9062-44c4-97bb-faaf6c79c924" />
+        <ownedAttributesInternal>
+          <property Id="33171d21-e79c-4f52-8165-3b66023c7487" name="Successor" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="7a8d889f-b687-4012-b350-e57994fbd81e" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="0861c5ac-de7e-4569-a95b-18d2dd4068dc" LastKnownName="IHandler" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation Id="855eeb6a-6b56-4e85-87ae-2d7c603599d8" name="HandleRequest" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="a8648174-1149-4a59-ab4b-e6b4d0d4a4d0" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="ba328b45-a6ef-46bc-8afa-a99a4e2a7ea8" name="Request" direction="In" isUnique="false">
+                  <elementDefinition Id="01b50a18-a6e8-4f3c-8ab5-b0648519586b" />
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="5981b6e3-d8cb-4d40-a1d9-5f357098f952" name="WordProcessor" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="18205873-8851-44c0-bec5-c7438345fcbe" />
+        <targetEnds>
+          <association Id="be9ddc94-f2a1-49f5-b71c-414afb9aaae7" isDerived="false" sourceEndRoleName="WordProcessor" targetEndRoleName="Successor" isLeaf="false" isAbstract="false">
+            <classMoniker Id="96fcd6b3-bdc8-4674-b3bb-5dfbc0197268" LastKnownName="EnglishSpellChecker" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="06baf253-61e9-40d4-af76-920f5a54d062" name="WordProcessor" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="f4b9d47f-0813-47ae-8375-5f25897f504b" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="d55fe7a5-07bc-4ee5-bd97-919d854fb4a0" name="Successor" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="13df5e3b-03bd-48a8-8f6a-0938e3f510a5" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="f035a19c-bb68-44c9-a563-7b062378975b" />
+          </association>
+        </targetEnds>
+      </class>
+    </logicalClassDesignerModelHasTypes>
   </packagedElements>
   <package Id="74f78062-7da0-4097-a554-afea11572259" name="ChainOfResponsibility">
     <elementDefinition Id="9774b292-8883-4e79-9e03-0aba0ab2877c" />
+    <profileInstances>
+      <packageHasProfileInstances Id="57eb421a-848b-4fb6-8b17-70fb82bfb564">
+        <profileInstance Id="7b419976-4822-4865-8492-bdfbfc1b0ad1" name="StandardProfileL2">
+          <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+        </profileInstance>
+        <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+      </packageHasProfileInstances>
+      <packageHasProfileInstances Id="1de5854f-e6af-46d5-9145-f53f7d05731f">
+        <profileInstance Id="f5008190-43fa-40db-a763-c214263285a8" name="StandardProfileL3">
+          <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+        </profileInstance>
+        <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+      </packageHasProfileInstances>
+    </profileInstances>
   </package>
 </logicalClassDesignerModel>
