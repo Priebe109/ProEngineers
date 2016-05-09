@@ -19,7 +19,7 @@ namespace Application
 		/// Initializes a new instance of the <see cref="file_client"/> class.
 		/// 
 		/// file_client metoden opretter en peer-to-peer forbindelse
-		/// Sender en forspÃ¸rgsel for en bestemt fil om denne findes pÃ¥ serveren
+		/// Sender en forspørgsel for en bestemt fil om denne findes på serveren
 		/// Modtager filen hvis denne findes eller en besked om at den ikke findes (jvf. protokol beskrivelse)
 		/// Lukker alle streams og den modtagede fil
 		/// Udskriver en fejl-meddelelse hvis ikke antal argumenter er rigtige
@@ -42,22 +42,20 @@ namespace Application
 		    var receivedBytes = transport.receive(ref receiveBuf);
 		    var truncatedBuf = receiveBuf.Take(receivedBytes).ToArray();
 
+		    var fileSize = int.Parse(Encoding.ASCII.GetString(truncatedBuf));
+
             // Act on message from server.
-            switch (Encoding.ASCII.GetString(truncatedBuf))
+            switch (fileSize)
             {
-                case "OK":
-                    // File found on server
-                    receiveFile(LIB.extractFileName(filePath), transport);
-                    break;
-                case "NOT FOUND":
+                case 0:
                     Console.WriteLine(" >>  File not found on server");
                     return;
                 default:
+                    // File found on server
+                    receiveFile(LIB.extractFileName(filePath), fileSize, transport);
                     break;
             }
-
-            Console.WriteLine(">> Response from server:");
-            Console.WriteLine(Encoding.ASCII.GetString(receiveBuf, 0, receiveBuf.Length));
+            
         }
 
 		/// <summary>
@@ -69,18 +67,24 @@ namespace Application
 		/// <param name='transport'>
 		/// Transportlaget
 		/// </param>
-		private void receiveFile (String fileName, Transport transport)
+		private void receiveFile (String fileName, int fileSize, Transport transport)
         {
             // Client’en skal modtage den ønskede fil fejlfrit fra serveren – eller udskrive en fejlmelding hvis filen ikke findes i serveren.
-            byte[] outBuffer = new byte[BUFSIZE];
+            byte[] inBuffer = new byte[BUFSIZE];
             int received;
             FileStream fileStream = new FileStream(fileName, FileMode.Create, FileAccess.ReadWrite);
 
-            // While bytes received > 0.
-            while ((received = transport.receive(ref outBuffer)) > 0)
-                fileStream.Write(outBuffer, 0, received);
+            int packetCount = (int)Math.Ceiling((double)fileSize / (double)BUFSIZE);
 
-            Console.WriteLine(" >> Recieved file");
+            for (int i = 0; i < packetCount; i++)
+		    {
+		        received = transport.receive(ref inBuffer);
+                fileStream.Write(inBuffer, 0, received);
+
+                Console.Write("\rRecieved {0} out of {1} packets", i + 1, packetCount);
+            }
+
+            Console.WriteLine("\n >> Recieved file");
         }
 
 		/// <summary>
