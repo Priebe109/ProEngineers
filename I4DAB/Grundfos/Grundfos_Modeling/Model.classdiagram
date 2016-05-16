@@ -1,19 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <logicalClassDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" dslVersion="1.0.0.0" Id="ac6312fa-97e9-4339-bd60-5b93f20ea9b8" name="Model" linkedPackageId="e9a5e7c2-0233-4862-9477-fedc9553014c" xmlns="http://schemas.microsoft.com/dsltools/LogicalClassDesigner">
-  <profileInstances>
-    <packageHasProfileInstances Id="40be41a6-616e-4478-bad8-35bd23f3bad0">
-      <profileInstance Id="860f4532-813d-428a-85a7-96e5f1b92fc1" name="StandardProfileL2">
-        <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
-      </profileInstance>
-      <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
-    </packageHasProfileInstances>
-    <packageHasProfileInstances Id="9c571cdc-7b60-4f07-89d7-d1175a39f39e">
-      <profileInstance Id="2b7f97d6-aad6-43be-96ba-d8f5c786a845" name="StandardProfileL3">
-        <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
-      </profileInstance>
-      <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
-    </packageHasProfileInstances>
-  </profileInstances>
   <packagedElements>
     <logicalClassDesignerModelHasTypes>
       <class Id="f53384f3-db21-491f-b2be-97d90d73d6d5" name="AppartmentCharacteristics" isAbstract="false" isLeaf="false" isActiveClass="false">
@@ -117,7 +103,7 @@
           <property Id="3a10fdfc-7c56-41fd-a429-ba26473f06a7" name="readingTimestamp" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
             <elementDefinition Id="073b1c3f-f62e-40ab-a6c5-1753868752b8" />
             <type_NamedElement>
-              <referencedTypeMoniker Id="4db09878-6aed-48c1-99aa-ba4699fc9f73" LastKnownName="string" />
+              <referencedTypeMoniker Id="47fc1a16-124c-4d13-b571-a9ecddf9c055" LastKnownName="DateTime" />
             </type_NamedElement>
           </property>
         </ownedAttributesInternal>
@@ -142,7 +128,7 @@
           <property Id="505348b5-ddac-4daf-9ed6-d239415a80e6" name="calibrationDate" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
             <elementDefinition Id="0d8d4133-84d3-4472-becb-7897cbb54fcd" />
             <type_NamedElement>
-              <referencedTypeMoniker Id="4db09878-6aed-48c1-99aa-ba4699fc9f73" LastKnownName="string" />
+              <referencedTypeMoniker Id="1d5994d7-d40a-45c9-a623-e2281e10be2c" LastKnownName="DateTime" />
             </type_NamedElement>
           </property>
           <property Id="2e72ba27-8a70-4f0c-a25e-f772eda5f65d" name="calibrationEquation" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
@@ -181,8 +167,32 @@
         <elementDefinition Id="cc5b994f-5aba-4640-bc31-52f021304560" />
       </referencedType>
     </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="47fc1a16-124c-4d13-b571-a9ecddf9c055" name="DateTime" isAbstract="false" isLeaf="false" cachedFullName="DateTime">
+        <elementDefinition Id="89be9d69-d810-48e6-bc75-c4f77629b5b9" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="1d5994d7-d40a-45c9-a623-e2281e10be2c" name="DateTime" isAbstract="false" isLeaf="false" cachedFullName="DateTime">
+        <elementDefinition Id="89be9d69-d810-48e6-bc75-c4f77629b5b9" />
+      </referencedType>
+    </packageHasNamedElement>
   </packagedElements>
   <package Id="e9a5e7c2-0233-4862-9477-fedc9553014c" name="Grundfos_Modeling">
     <elementDefinition Id="d4db1304-8d59-4c11-b933-5395d2ac9d19" />
+    <profileInstances>
+      <packageHasProfileInstances Id="40be41a6-616e-4478-bad8-35bd23f3bad0">
+        <profileInstance Id="860f4532-813d-428a-85a7-96e5f1b92fc1" name="StandardProfileL2">
+          <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+        </profileInstance>
+        <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+      </packageHasProfileInstances>
+      <packageHasProfileInstances Id="9c571cdc-7b60-4f07-89d7-d1175a39f39e">
+        <profileInstance Id="2b7f97d6-aad6-43be-96ba-d8f5c786a845" name="StandardProfileL3">
+          <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+        </profileInstance>
+        <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+      </packageHasProfileInstances>
+    </profileInstances>
   </package>
 </logicalClassDesignerModel>

@@ -241,8 +241,8 @@
             isComposite="false">
             <type_NamedElement>
               <undefinedTypeMoniker
-                Id="e08e366b-b9dd-40ee-aa4b-94a1530f93ed"
-                LastKnownName="string"
+                Id="89be9d69-d810-48e6-bc75-c4f77629b5b9"
+                LastKnownName="DateTime"
                 LastKnownLocation="Grundfos_Modeling.uml" />
             </type_NamedElement>
           </property>
@@ -306,8 +306,8 @@
             isComposite="false">
             <type_NamedElement>
               <undefinedTypeMoniker
-                Id="e08e366b-b9dd-40ee-aa4b-94a1530f93ed"
-                LastKnownName="string"
+                Id="89be9d69-d810-48e6-bc75-c4f77629b5b9"
+                LastKnownName="DateTime"
                 LastKnownLocation="Grundfos_Modeling.uml" />
             </type_NamedElement>
           </property>
@@ -382,6 +382,11 @@
       <undefinedType
         Id="cc5b994f-5aba-4640-bc31-52f021304560"
         name="double" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <undefinedType
+        Id="89be9d69-d810-48e6-bc75-c4f77629b5b9"
+        name="DateTime" />
     </packageHasNamedElement>
   </packagedElements>
   <primitiveType
