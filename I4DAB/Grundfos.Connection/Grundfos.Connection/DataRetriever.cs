@@ -5,24 +5,19 @@ namespace Grundfos.Connection
 {
     public class DataRetriever
     {
-
-
-
-
-        public void GetJSONResponse(string url)
+        public string GetJsonResponse(string url)
         {
             // Create request
-            var request = (HttpWebRequest)WebRequest.Create(url);
+            var request = (HttpWebRequest) WebRequest.Create(url);
             request.Method = WebRequestMethods.Http.Get;
             request.Accept = "application/json";
 
 
-            string text;
+            // Read response
             var response = (HttpWebResponse)request.GetResponse();
-
-            using (var sr = new StreamReader(response.GetResponseStream()))
+            using (var reader = new StreamReader(response.GetResponseStream()))
             {
-                text = sr.ReadToEnd();
+                return reader.ReadToEnd();
             }
         }
     }
