@@ -14,10 +14,12 @@ namespace Grundfos.Connection
 
 
             // Read response
-            var response = (HttpWebResponse)request.GetResponse();
-            using (var reader = new StreamReader(response.GetResponseStream()))
+            using (var response = request.GetResponse())
             {
-                return reader.ReadToEnd();
+                using (var reader = new StreamReader(response.GetResponseStream()))
+                {
+                    return reader.ReadToEnd();
+                }
             }
         }
     }
