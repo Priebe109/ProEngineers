@@ -3,29 +3,44 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
 namespace Grundfos.Connection
 {
     public class JsonParser
     {
-        public Dictionary<string, object> DeserializeResponse(string response)
+        public Dictionary<string, string> DeserializeResponse(string response)
         {
             // Deserializes the response into a C# dictionary
-            return JsonConvert.DeserializeObject<Dictionary<string, object>>(response);
+            return JsonConvert.DeserializeObject<Dictionary<string, string>>(response);
         }
 
-        public List<Reading> GetReadingsFromDeserializedResponse(Dictionary<string, object> dictionary)
+        public List<Reading> GetReadingsFromDeserializedResponse(Dictionary<string, string> dictionary)
         {
             // Get readings from dictionary
-            var readings = dictionary["reading"] as List<Dictionary<string, object>>;
+            return JsonConvert.DeserializeObject<List<Reading>>(dictionary["reading"]);
+        }
 
-            var readingList = new List<Reading>();
-            if (readings == null) return readingList;
+        public JObject DeserializeResponseToJObject(string response)
+        {
+            return JObject.Parse(response);
+        }
 
-            // Parse the reading dictionaries into reading objects
-            readingList.AddRange(readings.Select(reading => new Reading((int) reading["sensorId"], (int) reading["appartmentId"], (double) reading["value"], DateTime.Parse((string) reading["timestamp"]))));
+        public List<Reading> GetReadingsFromJObject(JObject jObject)
+        {
+            var jReading = jObject["reading"];
+            var readings = new List<Reading>();
 
-            return readingList;
+            foreach (var reading in jReading)
+                readings.Add(new Reading((int)reading["sensorId"], (int)reading["appartmentId"], (double)reading["value"], DateTime.Now));
+
+            return readings;
+        }
+
+        public List<Reading> GetReadingsFromUrl(string url)
+        {
+            var parser = new JsonParser();
+            return parser.GetReadingsFromJObject(parser.DeserializeResponseToJObject(url));
         }
     }
 

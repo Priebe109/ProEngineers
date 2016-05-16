@@ -16,9 +16,7 @@ namespace Grundfos.Application
             {
                 var url = string.Format($"http://userportal.iha.dk/~jrt/i4dab/E14/HandIn4/dataGDL/data/{i}.json");
 
-                var readings =
-                    jsonParser.GetReadingsFromDeserializedResponse(
-                        jsonParser.DeserializeResponse(dataRetriever.GetJsonResponse(url)));
+                var readings = jsonParser.GetReadingsFromUrl(url);
 
                 foreach (var reading in readings)
                     Console.WriteLine(reading);
