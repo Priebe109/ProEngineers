@@ -4,16 +4,16 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <Name>Grundfos.Database</Name>
+    <Name>Grundfos.SSDT</Name>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectVersion>4.1</ProjectVersion>
-    <ProjectGuid>{76179d55-21e8-4a52-bafe-c9b40e02ab26}</ProjectGuid>
+    <ProjectGuid>{9cb78888-3058-4b83-8a39-89be047fe492}</ProjectGuid>
     <DSP>Microsoft.Data.Tools.Schema.Sql.Sql120DatabaseSchemaProvider</DSP>
     <OutputType>Database</OutputType>
     <RootPath>
     </RootPath>
-    <RootNamespace>Grundfos.Database</RootNamespace>
-    <AssemblyName>Grundfos.Database</AssemblyName>
+    <RootNamespace>Grundfos.SSDT</RootNamespace>
+    <AssemblyName>Grundfos.SSDT</AssemblyName>
     <ModelCollation>1033, CI</ModelCollation>
     <DefaultFileStructure>BySchemaAndSchemaType</DefaultFileStructure>
     <DeployToDatabase>True</DeployToDatabase>
@@ -57,10 +57,5 @@
   <Import Condition="'$(SQLDBExtensionsRefPath)' == ''" Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
   <ItemGroup>
     <Folder Include="Properties" />
-  </ItemGroup>
-  <ItemGroup>
-    <Build Include="dropModel.sql" />
-    <Build Include="loadModel.sql" />
-    <Build Include="schmModel.sql" />
   </ItemGroup>
 </Project>
