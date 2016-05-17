@@ -58,4 +58,13 @@
   <ItemGroup>
     <Folder Include="Properties" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Procedure_GetData.sql" />
+    <None Include="Procedure_Test.sql" />
+    <None Include="Function_ReadingsForApartment.sql" />
+    <None Include="Procedure_PostData.sql" />
+    <None Include="Trigger.sql" />
+    <None Include="Trigger_Table.sql" />
+    <None Include="View_ReadingMetaData.sql" />
+  </ItemGroup>
 </Project>

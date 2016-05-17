@@ -1,4 +1,7 @@
-﻿CREATE TRIGGER [Trigger]
+﻿USE [F16I4DABH4Gr2]
+GO
+
+CREATE TRIGGER [Trigger]
 	ON [dbo].[reading]
 	FOR DELETE, INSERT, UPDATE
 	AS
