@@ -58,9 +58,4 @@
   <ItemGroup>
     <Folder Include="Properties" />
   </ItemGroup>
-  <ItemGroup>
-    <Build Include="dropModel.sql" />
-    <Build Include="loadModel.sql" />
-    <Build Include="schmModel.sql" />
-  </ItemGroup>
 </Project>

@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Grundfos.Application", "Gru
 EndProject
 Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "Grundfos.Database", "Grundfos.Database\Grundfos.Database.sqlproj", "{76179D55-21E8-4A52-BAFE-C9B40E02AB26}"
 EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "Grundfos.SSDT", "Grundfos.SSDT\Grundfos.SSDT.sqlproj", "{9CB78888-3058-4B83-8A39-89BE047FE492}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -29,6 +31,12 @@ Global
 		{76179D55-21E8-4A52-BAFE-C9B40E02AB26}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{76179D55-21E8-4A52-BAFE-C9B40E02AB26}.Release|Any CPU.Build.0 = Release|Any CPU
 		{76179D55-21E8-4A52-BAFE-C9B40E02AB26}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{9CB78888-3058-4B83-8A39-89BE047FE492}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9CB78888-3058-4B83-8A39-89BE047FE492}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9CB78888-3058-4B83-8A39-89BE047FE492}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{9CB78888-3058-4B83-8A39-89BE047FE492}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9CB78888-3058-4B83-8A39-89BE047FE492}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9CB78888-3058-4B83-8A39-89BE047FE492}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

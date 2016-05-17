@@ -57,5 +57,17 @@
   <Import Condition="'$(SQLDBExtensionsRefPath)' == ''" Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
   <ItemGroup>
     <Folder Include="Properties" />
+    <Folder Include="DDS-Lite" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Grundfos_Scheme.sql" />
+    <None Include="Grundfos_Drop.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="DDS-Lite\dropModel.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="DDS-Lite\loadModel.sql" />
+    <None Include="DDS-Lite\schmModel.sql" />
   </ItemGroup>
 </Project>
