@@ -1,47 +1,36 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
 namespace Grundfos.Connection
 {
     public class JsonParser
     {
-        public Dictionary<string, string> DeserializeResponse(string response)
-        {
-            // Deserializes the response into a C# dictionary
-            return JsonConvert.DeserializeObject<Dictionary<string, string>>(response);
-        }
-
-        public List<Reading> GetReadingsFromDeserializedResponse(Dictionary<string, string> dictionary)
-        {
-            // Get readings from dictionary
-            return JsonConvert.DeserializeObject<List<Reading>>(dictionary["reading"]);
-        }
-
         public JObject DeserializeResponseToJObject(string response)
         {
+            // Parse the response into a json object
             return JObject.Parse(response);
         }
 
         public List<Reading> GetReadingsFromJObject(JObject jObject)
         {
+            // Get the readings json objet from the input json object
             var jReading = jObject["reading"];
             var readings = new List<Reading>();
 
+            // Iterate though all readings and add them to an ordinary list
             foreach (var reading in jReading)
                 readings.Add(new Reading((int)reading["sensorId"], (int)reading["appartmentId"], (double)reading["value"], DateTime.Now));
 
             return readings;
         }
 
-        public List<Reading> GetReadingsFromUrl(string url)
+        public List<Reading> ReadingsFromRawData(string data)
         {
-            var parser = new JsonParser();
-            return parser.GetReadingsFromJObject(parser.DeserializeResponseToJObject(url));
-        }
+            // Convenience method
+            var response = DeserializeResponseToJObject(data);
+            return GetReadingsFromJObject(response);
+        } 
     }
 
     public class Reading
