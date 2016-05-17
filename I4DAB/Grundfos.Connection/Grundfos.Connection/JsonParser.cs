@@ -35,6 +35,8 @@ namespace Grundfos.Connection
 
     public class Reading
     {
+        // Temporary transport class before being casted to real ADO.NET entity class
+
         public int SensorId;
         public int ApartmentId;
         public double Value;
