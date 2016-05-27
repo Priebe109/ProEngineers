@@ -1,11 +1,11 @@
-﻿USE [F16I4DABH4Gr2]
+﻿USE [F16I4DABH4Gr3]
 GO
 
 CREATE FUNCTION [dbo].[ReadingsForApartment]
 (
 	@apartmentId int
 )
-RETURNS TABLE
+RETURNS TABLE5
 AS
 RETURN 
 	SELECT

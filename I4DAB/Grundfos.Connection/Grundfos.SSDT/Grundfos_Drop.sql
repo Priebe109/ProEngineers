@@ -9,13 +9,13 @@
 -- Select Database: 'db_name'
 --
  
-IF DB_NAME() = 'Grundfos.Database'
-    RAISERROR('''Grundfos.Database'' DATABASE CONTEXT NOW IN USE.',1,1)
+IF DB_NAME() = 'F16I4DABH4Gr3'
+    RAISERROR('''F16I4DABH4Gr3'' DATABASE CONTEXT NOW IN USE.',1,1)
 ELSE
     RAISERROR('ERROR IN BATCH FILE, ''USE db_name'' FAILED!  KILLING THE SPID NOW.',22,127) WITH LOG
  
 GO
-EXECUTE SP_DBOPTION 'Grundfos.Database' ,'TRUNC. LOG ON CHKPT.' ,'TRUE'
+EXECUTE SP_DBOPTION 'F16I4DABH4Gr3' ,'TRUNC. LOG ON CHKPT.' ,'TRUE'
 GO
 --
 -- Drop Table    : 'reading'   
