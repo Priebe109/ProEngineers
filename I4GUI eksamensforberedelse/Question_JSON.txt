@@ -23,7 +23,7 @@
 			"B": "Qatar",
 			"C": "Spanien",
 			"D": "Serbien",
-			"RightAnswer": ""
+			"RightAnswer": "A"
 	},
 	
 	{
@@ -32,7 +32,7 @@
 			"B": "119",
 			"C": "121",
 			"D": "129",
-			"RightAnswer": 
+			"RightAnswer": "C" 
 	},
 	
 	{
@@ -41,16 +41,16 @@
 			"B": "4",
 			"C": "6",
 			"D": "7",
-			"RightAnswer": 
+			"RightAnswer": "D"
 	},
 	
 	{
-		"Question": "Hvilket af følgendelande har alle disse tre farver - rødt, hvidt og grønt -  nationalflaget?",
+		"Question": "Hvilket af følgende lande har alle disse tre farver - rødt, hvidt og grønt -  i nationalflaget?",
 			"A": "Italien",
 			"B": "Frankrig",
 			"C": "Tyskland",
 			"D": "Irland",
-			"RightAnswer": 
+			"RightAnswer": "A"
 	},
 	
 	{
@@ -59,7 +59,7 @@
 			"B": "Wilhelm Dinesen"
 			"C": "Tom Buk-Svienty"
 			"D": "Bror Blixen"
-			"RightAnswer": 
+			"RightAnswer": "B"
 	},
 	
 	{
@@ -68,7 +68,7 @@
 			"B": "HCL",
 			"C": "H2SO4",
 			"D": "HNO3"
-			"RightAnswer": 
+			"RightAnswer": "B"
 	},
 	
 	{
@@ -77,6 +77,6 @@
 			"B": "Lydstyrke",
 			"C": "Lysstyrke",
 			"D": "Strømstyrke",
-			"RightAnswer": 
+			"RightAnswer": "C"
 	}
 ]
