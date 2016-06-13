@@ -1,0 +1,29 @@
+﻿<Window x:Class="GUIEksamen.IndtastWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GUIEksamen"
+        mc:Ignorable="d"
+        Title="Vittigheder - Indtast" MinHeight="246" Width="300">
+    <Grid UseLayoutRounding ="True" SnapsToDevicePixels="True">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="120"/>
+        </Grid.ColumnDefinitions>
+        
+        <local:PlaceholderTextBox x:Name="VittighedTextBox" PlaceholderText="Vittighed" Grid.Row="0" Grid.Column="0" Grid.RowSpan="3" Margin="20,0,20,20" MinLines="3" TextWrapping="Wrap" AcceptsReturn="True" Template="{StaticResource PlaceholderTextBoxTemplate}" VerticalContentAlignment="Center" />
+        <local:PlaceholderTextBox x:Name="DatoTextBox" PlaceholderText="Dato dd.mm.årår" Grid.Row="0" Grid.Column="1" Margin="0,0,20,20" Height="30" Template="{StaticResource PlaceholderTextBoxTemplate}" VerticalContentAlignment="Center" />
+        <local:PlaceholderTextBox x:Name="KildeTextBox" PlaceholderText="Kilde" Grid.Row="1" Grid.Column="1" Margin="0,0,20,20" Height="30" Template="{StaticResource PlaceholderTextBoxTemplate}" VerticalContentAlignment="Center" />
+        <Button x:Name="TilbageButton" Grid.Row="2" Grid.Column="1" Margin="0,0,20,18" Content="Tilbage" Height="35" VerticalAlignment="Bottom" Template="{StaticResource MyButtonTemplate}"/>
+
+        <local:PlaceholderTextBox x:Name="EmneTextBox" PlaceholderText="Emne1, Emne2" Grid.Row="3" Grid.Column="0" Margin="20,0,20,20" Height="30" Template="{StaticResource PlaceholderTextBoxTemplate}" VerticalContentAlignment="Center" />
+        <Button x:Name="GemButton" Grid.Row="3" Grid.Column="1" Margin="0,0,20,20" Content="Gem" Height="35" Template="{StaticResource MyButtonTemplate}"/>
+    </Grid>
+</Window>
