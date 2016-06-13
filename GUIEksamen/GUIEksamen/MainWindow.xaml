@@ -1,0 +1,23 @@
+﻿<Window x:Class="GUIEksamen.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="Vittigheder" Height="300" MinHeight="246" Width="525">
+    <Grid UseLayoutRounding ="True" SnapsToDevicePixels="True" >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+    
+        <Button Name="IndtastButton" Grid.Row="0" Grid.Column="1" Content="Indtast vittighed" Margin="0,20,0,0" Template="{StaticResource MyButtonTemplate}"/>
+        <Button Name="SoegButton" Grid.Row="1" Grid.Column="1" Content="Søg i vittigheder" Margin="0,20,0,10" Template="{StaticResource MyButtonTemplate}"/>
+    </Grid>
+</Window>
