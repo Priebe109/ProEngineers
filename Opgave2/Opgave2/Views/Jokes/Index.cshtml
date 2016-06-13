@@ -1,13 +1,25 @@
-﻿@model IEnumerable<GUI_Eksamen_Opgave2.Models.Joke>
+﻿@model System.Collections.Generic.IEnumerable<GUI_Eksamen_Opgave2.Models.Joke>
 
 @{
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>Søg i vittigheder</h2>
+
+
+@using (Html.BeginForm("Index", "Jokes", FormMethod.Get))
+{
+    <div class="row">
+        <div class="col-md-4">
+            @Html.TextBox("SearchString", "", new { @class = "form-control", placeholder = "Søg i emner" })
+        </div>
+        <input type="submit" value="Søg" class="btn btn-default"/>
+    </div>
+}
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    <br/>
+    @Html.ActionLink("Tilføj ny vittighed", "Create", "", new {@class = "btn btn-default"})
 </p>
 <table class="table">
     <tr>
@@ -49,3 +61,4 @@
 }
 
 </table>
+

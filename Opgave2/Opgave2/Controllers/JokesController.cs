@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.UI.WebControls.Expressions;
 using GUI_Eksamen_Opgave2.Models;
 
 namespace Opgave2.Controllers
@@ -15,9 +16,18 @@ namespace Opgave2.Controllers
         private JokesDbContext db = new JokesDbContext();
 
         // GET: Jokes
-        public ActionResult Index()
+        public ActionResult Index(string searchString)
         {
-            return View(db.Jokes.ToList());
+            var jokes = from j in db.Jokes select j ;
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                jokes = jokes.Where(s => s.Tags.Contains(searchString));
+            }
+
+            jokes = jokes.OrderByDescending(x => x.Date);
+
+            return View(jokes);
         }
 
         // GET: Jokes/Details/5
