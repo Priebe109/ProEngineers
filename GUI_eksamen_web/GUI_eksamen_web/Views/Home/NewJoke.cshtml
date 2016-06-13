@@ -1,5 +1,7 @@
 ﻿@using System.Web.UI.WebControls
-@model GUI_eksamen_web.Models.JokeModels
+@using GUI_eksamen_web.Models
+@using Microsoft.Ajax.Utilities
+@model List<GUI_eksamen_web.Models.Joke>
 @{
     ViewBag.Title = "NewJoke";
 }
@@ -23,11 +25,11 @@
 
 <h2>Indtast en ny vittighed</h2>
 
-@using (Html.BeginForm("Joke", "NewJoke", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post))
+@using (Html.BeginForm("NewJoke", "Home", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post))
 {
     <div class="row">
         <div class="col-md-4">
-            @Html.TextAreaFor(m => m.NewJoke, new {PlaceHolder = "Indtast din vittighed...", @class = "form-control", @style = "height: 300pt; min-width: 100%; min-height: 300pt"})
+            @Html.TextAreaFor(Model, new {PlaceHolder = "Indtast din vittighed...", @class = "form-control", @style = "height: 300pt; min-width: 100%; min-height: 300pt"})
         </div>
 
         <div class="form-group">

@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.EnterpriseServices;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using GUI_eksamen_web.Models;
 
 namespace GUI_eksamen_web.Controllers
 {
@@ -34,9 +36,11 @@ namespace GUI_eksamen_web.Controllers
         }
 
         // GET: SearchJoke
-        public ActionResult SearchJokes()
+        public ActionResult SearchJokes(string searchString)
         {
-            return View();
+        
+            JokeDbContext db = new JokeDbContext();
+            return View(db.Jokes.ToList());
         }
     }
 }
