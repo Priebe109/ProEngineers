@@ -133,15 +133,7 @@ namespace SchedulerHandout
                     if (threadName != name) continue;
 
                     // Return the threads priority.
-                    switch (i)
-                    {
-                        case 0:
-                            return Priority.High;
-                        case 1:
-                            return Priority.Med;
-                        default:
-                            return Priority.Low;
-                    }
+                    return (Priority) i;
                 }
             }
 
