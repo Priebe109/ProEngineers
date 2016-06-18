@@ -174,7 +174,7 @@ namespace SchedulerHandout
     }
 }
 
-public class NoThreadsException : Exception
+public class NoThreadsException : InvalidOperationException
 {
 	public NoThreadsException (string message) : base (message) {}
 }
